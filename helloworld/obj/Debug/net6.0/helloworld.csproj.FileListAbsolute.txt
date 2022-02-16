@@ -1,0 +1,15 @@
+/home/garcia/Documents/source/FATEC/helloworld/bin/Debug/net6.0/helloworld
+/home/garcia/Documents/source/FATEC/helloworld/bin/Debug/net6.0/helloworld.deps.json
+/home/garcia/Documents/source/FATEC/helloworld/bin/Debug/net6.0/helloworld.runtimeconfig.json
+/home/garcia/Documents/source/FATEC/helloworld/bin/Debug/net6.0/helloworld.dll
+/home/garcia/Documents/source/FATEC/helloworld/bin/Debug/net6.0/ref/helloworld.dll
+/home/garcia/Documents/source/FATEC/helloworld/bin/Debug/net6.0/helloworld.pdb
+/home/garcia/Documents/source/FATEC/helloworld/obj/Debug/net6.0/helloworld.csproj.AssemblyReference.cache
+/home/garcia/Documents/source/FATEC/helloworld/obj/Debug/net6.0/helloworld.GeneratedMSBuildEditorConfig.editorconfig
+/home/garcia/Documents/source/FATEC/helloworld/obj/Debug/net6.0/helloworld.AssemblyInfoInputs.cache
+/home/garcia/Documents/source/FATEC/helloworld/obj/Debug/net6.0/helloworld.AssemblyInfo.cs
+/home/garcia/Documents/source/FATEC/helloworld/obj/Debug/net6.0/helloworld.csproj.CoreCompileInputs.cache
+/home/garcia/Documents/source/FATEC/helloworld/obj/Debug/net6.0/helloworld.dll
+/home/garcia/Documents/source/FATEC/helloworld/obj/Debug/net6.0/ref/helloworld.dll
+/home/garcia/Documents/source/FATEC/helloworld/obj/Debug/net6.0/helloworld.pdb
+/home/garcia/Documents/source/FATEC/helloworld/obj/Debug/net6.0/helloworld.genruntimeconfig.cache
