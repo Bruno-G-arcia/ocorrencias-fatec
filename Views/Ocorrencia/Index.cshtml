@@ -1,0 +1,30 @@
+@using OcorrenciasWeb.Models
+@{
+    Layout = "/Views/Layout.cshtml";
+}
+
+<table class="table table-hover">
+    <tr>
+        <th>Ocorrencia</th>
+        <th>Titulo</th>
+        <th>Prioridade</th>
+        <th>Abertura</th>
+        <th>Prazo</th>
+    </tr>
+    @foreach(Ocorrencia o in Model)
+    {
+    <tr>
+        <td>@o.IdOcorrencia</td>
+        <td>@o.Titulo</td>
+        <td>@o.Prioridade</td>
+        <td>@o.Abertura.ToString("dd/MM/yyyy")</td>
+        <td>@o.Prazo.ToString("dd/MM/yyyy")</td>
+        <td>
+            <a href="/Produto/Delete/@o.IdOcorrencia">Apagar</a>
+            <a href="/Produto/Update/@o.IdOcorrencia">Editar</a>
+        </td>
+    </tr>
+    }
+</table>
+
+<a href="/Ocorrencia/Create" class="btn btn-primary">Adicionar</a>

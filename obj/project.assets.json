@@ -1,11 +1,53 @@
 {
   "version": 3,
   "targets": {
-    "net6.0": {}
+    "net6.0": {
+      "MySqlConnector/2.1.9": {
+        "type": "package",
+        "compile": {
+          "lib/net6.0/MySqlConnector.dll": {}
+        },
+        "runtime": {
+          "lib/net6.0/MySqlConnector.dll": {}
+        }
+      }
+    }
   },
-  "libraries": {},
+  "libraries": {
+    "MySqlConnector/2.1.9": {
+      "sha512": "72fgNLG3qVRaVkvjQOnY4jfbs7mukrMSWfu9b4l9LRwy5EKnPybRcDuaKtNI775c8FaeWgy/wEtV408opinAGQ==",
+      "type": "package",
+      "path": "mysqlconnector/2.1.9",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "lib/net45/MySqlConnector.dll",
+        "lib/net45/MySqlConnector.xml",
+        "lib/net461/MySqlConnector.dll",
+        "lib/net461/MySqlConnector.xml",
+        "lib/net471/MySqlConnector.dll",
+        "lib/net471/MySqlConnector.xml",
+        "lib/net5.0/MySqlConnector.dll",
+        "lib/net5.0/MySqlConnector.xml",
+        "lib/net6.0/MySqlConnector.dll",
+        "lib/net6.0/MySqlConnector.xml",
+        "lib/netcoreapp3.1/MySqlConnector.dll",
+        "lib/netcoreapp3.1/MySqlConnector.xml",
+        "lib/netstandard2.0/MySqlConnector.dll",
+        "lib/netstandard2.0/MySqlConnector.xml",
+        "lib/netstandard2.1/MySqlConnector.dll",
+        "lib/netstandard2.1/MySqlConnector.xml",
+        "logo.png",
+        "mysqlconnector.2.1.9.nupkg.sha512",
+        "mysqlconnector.nuspec"
+      ]
+    }
+  },
   "projectFileDependencyGroups": {
-    "net6.0": []
+    "net6.0": [
+      "MySqlConnector >= 2.1.9"
+    ]
   },
   "packageFolders": {
     "/home/garcia/.nuget/packages/": {}
@@ -13,11 +55,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/garcia/Documents/source/FATEC/FATEC.csproj",
-      "projectName": "FATEC",
-      "projectPath": "/home/garcia/Documents/source/FATEC/FATEC.csproj",
+      "projectUniqueName": "/home/garcia/Documents/source/fatec/oop/OcorrenciasWeb/OcorrenciasWeb.csproj",
+      "projectName": "OcorrenciasWeb",
+      "projectPath": "/home/garcia/Documents/source/fatec/oop/OcorrenciasWeb/OcorrenciasWeb.csproj",
       "packagesPath": "/home/garcia/.nuget/packages/",
-      "outputPath": "/home/garcia/Documents/source/FATEC/obj/",
+      "outputPath": "/home/garcia/Documents/source/fatec/oop/OcorrenciasWeb/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/home/garcia/.nuget/NuGet/NuGet.Config"
@@ -43,6 +85,12 @@
     "frameworks": {
       "net6.0": {
         "targetAlias": "net6.0",
+        "dependencies": {
+          "MySqlConnector": {
+            "target": "Package",
+            "version": "[2.1.9, )"
+          }
+        },
         "imports": [
           "net461",
           "net462",
@@ -54,11 +102,14 @@
         "assetTargetFallback": true,
         "warn": true,
         "frameworkReferences": {
+          "Microsoft.AspNetCore.App": {
+            "privateAssets": "none"
+          },
           "Microsoft.NETCore.App": {
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/snap/dotnet-sdk/155/sdk/6.0.102/RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/snap/dotnet-sdk/168/sdk/6.0.300/RuntimeIdentifierGraph.json"
       }
     }
   }

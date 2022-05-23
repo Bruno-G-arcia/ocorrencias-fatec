@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "8Cbhwof+vuKBRgogcl3u46qdt08UTS57yg6mPvPHpZCNYXBdKvJAf8Ym1px9qdGiyPm6UwNr6u+eDQTRupy8Dw==",
+  "dgSpecHash": "IaBDpCtHFXq+Z4G8LO7u5cLVOUYH0LWacXkWAVuTRRivDF4S3YMHUcyCTCafV6NoSTYCkjNKm/5n+QpG0DCtzg==",
   "success": true,
-  "projectFilePath": "/home/garcia/Documents/source/FATEC/FATEC.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "/home/garcia/Documents/source/fatec/oop/OcorrenciasWeb/OcorrenciasWeb.csproj",
+  "expectedPackageFiles": [
+    "/home/garcia/.nuget/packages/mysqlconnector/2.1.9/mysqlconnector.2.1.9.nupkg.sha512"
+  ],
   "logs": []
 }

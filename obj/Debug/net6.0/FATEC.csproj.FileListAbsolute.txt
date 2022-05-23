@@ -1,5 +1,0 @@
-/home/garcia/Documents/source/FATEC/obj/Debug/net6.0/FATEC.csproj.AssemblyReference.cache
-/home/garcia/Documents/source/FATEC/obj/Debug/net6.0/FATEC.GeneratedMSBuildEditorConfig.editorconfig
-/home/garcia/Documents/source/FATEC/obj/Debug/net6.0/FATEC.AssemblyInfoInputs.cache
-/home/garcia/Documents/source/FATEC/obj/Debug/net6.0/FATEC.AssemblyInfo.cs
-/home/garcia/Documents/source/FATEC/obj/Debug/net6.0/FATEC.csproj.CoreCompileInputs.cache
