@@ -41,7 +41,6 @@ namespace OcorrenciasWeb.Controllers
         [HttpGet]
         public ActionResult Update(int id)
         {
-            Console.WriteLine(id);
             var ocorrencia = repository.Read(id);
             return View(ocorrencia);
         }

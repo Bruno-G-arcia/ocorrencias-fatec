@@ -1,0 +1,3 @@
+USE OCORRENCIAS;
+
+SELECT * FROM Ocorrencia;

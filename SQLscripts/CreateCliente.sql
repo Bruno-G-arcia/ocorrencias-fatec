@@ -1,0 +1,7 @@
+USE OCORRENCIAS;
+
+CREATE TABLE Cliente(
+  IdCliente   INTEGER AUTO_INCREMENT NOT NULL,
+  IdPessoa    INTEGER,
+  PRIMARY KEY(IdCliente)
+)

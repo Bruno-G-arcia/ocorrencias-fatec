@@ -80,7 +80,7 @@ namespace OcorrenciasWeb.Repositories
       MySqlCommand cmd = new MySqlCommand();
       cmd.Connection = conn;
       cmd.CommandText = @"SELECT * FROM Ocorrencia
-    WHERE IDProduto = @id;";
+    WHERE IdOcorrencia = @id;";
       cmd.Parameters.AddWithValue("@id", id);
       Ocorrencia ocorrencia = new Ocorrencia();
 
@@ -112,20 +112,28 @@ namespace OcorrenciasWeb.Repositories
     SET Titulo  = @titulo,
     Descricao   = @descricao,
     Abertura    = @abertura,
-    Prazo       = @prazo
-    Status      = @status,
+    Prazo       = @prazo,
     Prioridade  = @prioridade,
-    IdCliente   = @idcliente
+    IdCliente   = @idCliente
     WHERE Ocorrencia.IdOcorrencia = @id;";
+
+      string abertura =  DateTime.Today.ToString("yyyy-MM-dd")  ;
+      string prazo =   ocorrencia.Prazo.ToString("yyyy-MM-dd")  ;
+
+      int IdCliente = 1;
+
+      System.Diagnostics.Debug.WriteLine(ocorrencia);
+
+      Console.Clear();
+      Console.WriteLine(ocorrencia);
 
       cmd.Parameters.AddWithValue("@id", id);
       cmd.Parameters.AddWithValue("@titulo", ocorrencia.Titulo);
       cmd.Parameters.AddWithValue("@descricao", ocorrencia.Descricao);
-      cmd.Parameters.AddWithValue("@abertura", ocorrencia.Abertura);
-      cmd.Parameters.AddWithValue("@prazo", ocorrencia.Prazo);
-      cmd.Parameters.AddWithValue("@status", ocorrencia.Status);
+      cmd.Parameters.AddWithValue("@abertura", abertura);
+      cmd.Parameters.AddWithValue("@prazo", prazo);
       cmd.Parameters.AddWithValue("@prioridade", ocorrencia.Prioridade);
-      cmd.Parameters.AddWithValue("@idCliente", ocorrencia.IdCliente);
+      cmd.Parameters.AddWithValue("@idCliente", IdCliente);
 
       cmd.ExecuteNonQuery();
 

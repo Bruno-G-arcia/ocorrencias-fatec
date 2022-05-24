@@ -1,0 +1,30 @@
+@using OcorrenciasWeb.Models
+@model Ocorrencia
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+@{
+    Layout = "/Views/Layout.cshtml";
+}
+<form action="/Ocorrencia/Update/@Model.IdOcorrencia" method="POST">
+    <div>
+        <label>Titulo</label>
+        <input type="text" class="form-control" name="Titulo" value="@Model.Titulo"/>
+    </div>
+
+    <div>
+        <label>Descrição</label>
+        <textarea type="text" name="Descricao" class="form-control">@Model.Descricao</textarea>
+    </div>
+
+   <div>
+        <label>Prazo</label>
+        <input type="date" name="Prazo" class="form-control">@Model.Prazo</textarea>
+    </div>
+
+    <div>
+        <label>Prioridade</label>
+        <textarea name="Prioridade" class="form-control">@Model.Prioridade</textarea>
+    </div>
+
+    <button class="btn btn-primary" style="margin-top: 20px">Salvar</button>
+</form>

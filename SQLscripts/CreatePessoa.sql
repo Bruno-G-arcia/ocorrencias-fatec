@@ -1,0 +1,9 @@
+USE OCORRENCIAS;
+
+CREATE TABLE Pessoa(
+  IdPessoa    INTEGER AUTO_INCREMENT NOT NULL,
+  Nome        VARCHAR(100),
+  CPF         VARCHAR(100),
+  Telefone    VARCHAR(100),
+  PRIMARY KEY(IdPessoa)
+)
