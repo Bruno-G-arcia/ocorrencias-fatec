@@ -4,6 +4,9 @@
 
 @{
     Layout = "/Views/Layout.cshtml";
+    if(Model == null){
+        return;
+    }
 }
 <form action="/Ocorrencia/Update/@Model.IdOcorrencia" method="POST">
     <div>
@@ -11,14 +14,14 @@
         <input type="text" class="form-control" name="Titulo" value="@Model.Titulo"/>
     </div>
 
-    <div>
-        <label>Descrição</label>
-        <textarea type="text" name="Descricao" class="form-control">@Model.Descricao</textarea>
+   <div>
+        <label>Descricao</label>
+        <textarea name="Descricao" class="form-control">@Model.Descricao</textarea>
     </div>
 
    <div>
         <label>Prazo</label>
-        <input type="date" name="Prazo" class="form-control">@Model.Prazo</textarea>
+        <input asp-for="Prazo" class="form-control"/>
     </div>
 
     <div>

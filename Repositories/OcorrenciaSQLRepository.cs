@@ -7,20 +7,24 @@ namespace OcorrenciasWeb.Repositories
   {
 
     public void Create(Ocorrencia ocorrencia)
-    {
+    { 
 
       MySqlCommand cmd = new MySqlCommand();
       cmd.Connection = conn;
       cmd.CommandText = @"INSERT INTO Ocorrencia (Titulo, Descricao, Abertura, Prazo, Status, Prioridade, idCliente) 
     VALUES(@titulo, @descricao, @abertura, @prazo, @status, @prioridade, @idCliente);";
 
+      var abertura  = DateTime.Now.ToString("yyyy-MM-dd");
+      var prazo     = DateTime.Now.AddDays(30).ToString("yyyy-MM-dd");
+      var IdCliente = 1; 
+
       cmd.Parameters.AddWithValue("@titulo", ocorrencia.Titulo);
       cmd.Parameters.AddWithValue("@descricao", ocorrencia.Descricao);
-      cmd.Parameters.AddWithValue("@abertura", ocorrencia.Abertura);
-      cmd.Parameters.AddWithValue("@prazo", ocorrencia.Prazo);
-      cmd.Parameters.AddWithValue("@status", ocorrencia.Status);
-      cmd.Parameters.AddWithValue("@prioridade", ocorrencia.Prioridade);
-      cmd.Parameters.AddWithValue("@idCliente", ocorrencia.IdCliente);
+      cmd.Parameters.AddWithValue("@abertura", abertura);
+      cmd.Parameters.AddWithValue("@prazo", prazo);
+      cmd.Parameters.AddWithValue("@status", "Suporte");
+      cmd.Parameters.AddWithValue("@prioridade", "Normal");
+      cmd.Parameters.AddWithValue("@idCliente", IdCliente);
 
       cmd.ExecuteNonQuery();
     }
@@ -81,6 +85,8 @@ namespace OcorrenciasWeb.Repositories
       cmd.Connection = conn;
       cmd.CommandText = @"SELECT * FROM Ocorrencia
     WHERE IdOcorrencia = @id;";
+
+
       cmd.Parameters.AddWithValue("@id", id);
       Ocorrencia ocorrencia = new Ocorrencia();
 
@@ -88,12 +94,13 @@ namespace OcorrenciasWeb.Repositories
       {
         while (reader.Read())
         {
-          ocorrencia.IdOcorrencia = (int)reader["IdOcorrencia"];
-          ocorrencia.Titulo = (string)reader["Titulo"];
-          ocorrencia.Abertura = (DateTime)reader["Abertura"];
-          ocorrencia.Prazo = (DateTime)reader["Prazo"];
-          ocorrencia.Prioridade = (string)reader["Prioridade"];
-          ocorrencia.IdCliente = (int)reader["IdCliente"];
+          ocorrencia.IdOcorrencia = (int)     reader["IdOcorrencia"];
+          ocorrencia.Titulo       = (string)  reader["Titulo"];
+          ocorrencia.Descricao    = (string)  reader["Descricao"];
+          ocorrencia.Abertura     = (DateTime)reader["Abertura"];
+          ocorrencia.Prazo        = (DateTime)reader["Prazo"];
+          ocorrencia.Prioridade   = (string)  reader["Prioridade"];
+          ocorrencia.IdCliente    = (int)     reader["IdCliente"];
         }
       }
       return ocorrencia;
@@ -109,17 +116,16 @@ namespace OcorrenciasWeb.Repositories
       MySqlCommand cmd = new MySqlCommand();
       cmd.Connection = conn;
       cmd.CommandText = @"UPDATE Ocorrencia 
-    SET Titulo  = @titulo,
-    Descricao   = @descricao,
-    Abertura    = @abertura,
-    Prazo       = @prazo,
-    Prioridade  = @prioridade,
-    IdCliente   = @idCliente
-    WHERE Ocorrencia.IdOcorrencia = @id;";
+      SET Titulo  = @titulo,
+      Descricao   = @descricao,
+      Abertura    = @abertura,
+      Prazo       = @prazo,
+      Prioridade  = @prioridade,
+      IdCliente   = @idCliente
+      WHERE Ocorrencia.IdOcorrencia = @id;";
 
       string abertura =  DateTime.Today.ToString("yyyy-MM-dd")  ;
       string prazo =   ocorrencia.Prazo.ToString("yyyy-MM-dd")  ;
-
       int IdCliente = 1;
 
       System.Diagnostics.Debug.WriteLine(ocorrencia);

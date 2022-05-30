@@ -50,24 +50,26 @@
     ]
   },
   "packageFolders": {
-    "/home/garcia/.nuget/packages/": {}
+    "C:\\Users\\Bruno\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/garcia/Documents/source/fatec/oop/OcorrenciasWeb/OcorrenciasWeb.csproj",
+      "projectUniqueName": "C:\\Users\\Bruno\\Source\\Repos\\Bruno-G-arcia\\ocorrencias-fatec\\OcorrenciasWeb.csproj",
       "projectName": "OcorrenciasWeb",
-      "projectPath": "/home/garcia/Documents/source/fatec/oop/OcorrenciasWeb/OcorrenciasWeb.csproj",
-      "packagesPath": "/home/garcia/.nuget/packages/",
-      "outputPath": "/home/garcia/Documents/source/fatec/oop/OcorrenciasWeb/obj/",
+      "projectPath": "C:\\Users\\Bruno\\Source\\Repos\\Bruno-G-arcia\\ocorrencias-fatec\\OcorrenciasWeb.csproj",
+      "packagesPath": "C:\\Users\\Bruno\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Bruno\\Source\\Repos\\Bruno-G-arcia\\ocorrencias-fatec\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/home/garcia/.nuget/NuGet/NuGet.Config"
+        "C:\\Users\\Bruno\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net6.0"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -109,7 +111,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/snap/dotnet-sdk/168/sdk/6.0.300/RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.101\\RuntimeIdentifierGraph.json"
       }
     }
   }

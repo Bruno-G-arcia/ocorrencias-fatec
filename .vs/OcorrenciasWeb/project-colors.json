@@ -1,0 +1,16 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "77f1eb3a-e5cf-46ea-9510-95fc6dae93eb": {
+      "ProjectGuid": "77f1eb3a-e5cf-46ea-9510-95fc6dae93eb",
+      "DisplayName": "OcorrenciasWeb",
+      "ColorIndex": 0
+    },
+    "7eea333b-a526-4f2a-9522-09c9aff4dff7": {
+      "ProjectGuid": "7eea333b-a526-4f2a-9522-09c9aff4dff7",
+      "DisplayName": "OcorrenciasWeb",
+      "ColorIndex": 1
+    }
+  },
+  "NextColorIndex": 2
+}

@@ -1,6 +1,6 @@
 USE OCORRENCIAS;
--- INSERT INTO Ocorrencia (Titulo, Descricao, Abertura, Prazo, Status, Prioridade, idCliente) 
---     VALUES("Botao nao funcionando", "Teste", 23/05/2022, 23/06/2022, "Suporte", "Urgente", 1);
+INSERT INTO Usuario (Email, Senha, Tipo) 
+VALUES("cliente", "1", "Cliente");
 
 -- ALTER TABLE Ocorrencia
 -- ADD COLUMN IdCliente INT AFTER Prioridade;
@@ -17,4 +17,4 @@ USE OCORRENCIAS;
 --     IdCliente   = 1
 --     WHERE Ocorrencia.IdOcorrencia <  99;
 
-SELECT * FROM Ocorrencia;
+SELECT * FROM Usuario;

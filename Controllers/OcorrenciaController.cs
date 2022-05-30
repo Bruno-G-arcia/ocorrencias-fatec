@@ -6,13 +6,13 @@ namespace OcorrenciasWeb.Controllers
 {
     public class OcorrenciaController : Controller
     {
-        private IOcorrenciaRepository repository;
+        private readonly IOcorrenciaRepository repository;
 
         public OcorrenciaController(IOcorrenciaRepository repository)
         {
             this.repository = repository;
         }
-
+        
         public ActionResult Index()
         {
             List<Ocorrencia> ocorrencias = repository.Read();
