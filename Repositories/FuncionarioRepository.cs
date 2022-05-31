@@ -10,10 +10,13 @@ namespace OcorrenciasWeb.Repositories
     { 
       MySqlCommand cmd = new MySqlCommand();
       cmd.Connection = conn;
-      cmd.CommandText = @"INSERT INTO Funcionario (Cargo) 
-      VALUES(@Cargo);";
+      cmd.CommandText = 
+      @"INSERT INTO Funcionario (IdPessoa, IdUsuario, Cargo) 
+      VALUES(@idPesoa, @idUsuario, @cargo);";
 
-      cmd.Parameters.AddWithValue("@cargo", funcionario.Cargo);
+      cmd.Parameters.AddWithValue("@idPessoa",   funcionario.IdPessoa);
+      cmd.Parameters.AddWithValue("@idUsuario",  funcionario.IdUsuario);
+      cmd.Parameters.AddWithValue("@cargo",      funcionario.Cargo);
 
       cmd.ExecuteNonQuery();
     }
@@ -22,7 +25,7 @@ namespace OcorrenciasWeb.Repositories
     {
       MySqlCommand cmd = new MySqlCommand();
       cmd.Connection = conn;
-      cmd.CommandText = @"DELETE FROM Funcionario 
+      cmd.CommandText = @"DELETE FROM vFuncionario 
       WHERE IdFuncionario = @id;";
 
       cmd.Parameters.AddWithValue("@id", id);
@@ -34,7 +37,7 @@ namespace OcorrenciasWeb.Repositories
     {
       MySqlCommand cmd = new MySqlCommand();
       cmd.Connection = conn;
-      cmd.CommandText = @"SELECT * FROM vFuncionarioPessoa;";
+      cmd.CommandText = @"SELECT * FROM vFuncionario;";
       List<Funcionario> funcionarios = new List<Funcionario>();
 
       using (MySqlDataReader reader = cmd.ExecuteReader())
@@ -47,95 +50,63 @@ namespace OcorrenciasWeb.Repositories
             IdFuncionario   = (int)reader["IdFuncionario"],
             Cargo           = (string)reader["Cargo"],
             IdUsuario       = (int)reader["IdUsuario"],
+            IdPessoa        = (int)reader["IdPessoa"],
             Email           = (string)reader["Email"],
             Tipo            = (string)reader["Tipo"],
-            Nome            = (string)reader["Nome"]
+            Nome            = (string)reader["Nome"],
+            Cpf             = (string)reader["CPF"],
+            Telefone        = (string)reader["Telefone"]
+            
           });
         }
 
       }
-      return usuarios;
+      return funcionarios;
     }
-
-    public Usuario Auth(string email, string senha)
+        
+    public Funcionario Read(int id)
     {
       MySqlCommand cmd = new MySqlCommand();
       cmd.Connection = conn;
-      cmd.CommandText = @"SELECT * 
-      FROM Usuario
-      LEFT JOIN Funcionario
-      ON Usuario.IdUsuario = Funcionario.IdUsuario
-      LEFT JOIN Cliente
-      ON Usuario.IdUsuario = Cliente.IdUsuario
-      LEFT JOIN Pessoa
-      ON Pessoa.IdPessoa = Funcionario.IdPessoa
-      OR
-      Pessoa.IdPessoa = Cliente.IdPessoa
-      WHERE Usuario.Email = @email 
-      AND Usuario.Senha = @senha";
+      cmd.CommandText = @"SELECT * FROM vFuncionario
+      WHERE IdFuncionario = @id;";
 
-      cmd.Parameters.AddWithValue("@email", email);
-      cmd.Parameters.AddWithValue("@senha", senha);
-      Usuario usuario = new Usuario();
+      cmd.Parameters.AddWithValue("@id", id);
+      Funcionario funcionario = new Funcionario();
 
       using (MySqlDataReader reader = cmd.ExecuteReader())
       {
         while (reader.Read())
         {
-          usuario.IdUsuario = (int)reader["IdUsuario"];
-          usuario.Email     = (string)reader["Email"];
-          usuario.Senha     = (string)reader["Senha"];
-          usuario.Tipo      = (string)reader["Tipo"];
+            funcionario.IdFuncionario = (int)reader["IdFuncionario"];
+            funcionario.Cargo         = (string)reader["Cargo"];
+            funcionario.IdUsuario     = (int)reader["IdUsuario"];
+            funcionario.IdPessoa      = (int)reader["IdPessoa"];
+            funcionario.Cpf           = (string)reader["Cpf"];
+            funcionario.Telefone      = (string)reader["Telefone"];
+            funcionario.Nome          = (string)reader["Nome"];
+            funcionario.Email         = (string)reader["CPF"];
+            funcionario.Senha         = (string)reader["Senha"];
         }
       }
-      return usuario;
+      return funcionario;
     }
 
-    public Usuario Read(int id)
+    public void Update(int id, Funcionario funcionario)
     {
       MySqlCommand cmd = new MySqlCommand();
       cmd.Connection = conn;
-      cmd.CommandText = @"SELECT * FROM Usuario
-      WHERE IdUsuario = @id;";
+      cmd.CommandText = 
+      @"UPDATE vFuncionario 
+      SET 
+      Cargo         = @cargo,
+      WHERE IdFuncionario = @id;";
 
-      cmd.Parameters.AddWithValue("@id", id);
-      Usuario usuario = new Usuario();
-
-      using (MySqlDataReader reader = cmd.ExecuteReader())
-      {
-        while (reader.Read())
-        {
-          usuario.IdUsuario = (int)reader["IdUsuario"];
-          usuario.Email = (string)reader["Email"];
-          usuario.Senha = (string)reader["Senha"];
-          usuario.Tipo = (string)reader["Tipo"];
-        }
-      }
-      return usuario;
-    }
-
-    public void Update(int id, Usuario usuario)
-    {
-      MySqlCommand cmd = new MySqlCommand();
-      cmd.Connection = conn;
-      cmd.CommandText = @"UPDATE Usuario 
-      SET Email   = @email,
-      Senha       = @senha,
-      Tipo        = @tipo,
-      WHERE IdUsuario = @id;";
-
-      cmd.Parameters.AddWithValue("@email", usuario.Email);
-      cmd.Parameters.AddWithValue("@Senha", usuario.Senha);
-      cmd.Parameters.AddWithValue("@tipo", usuario.Tipo);
-      cmd.Parameters.AddWithValue("@id", id);
-
+      cmd.Parameters.AddWithValue("@cargo",    funcionario.Cargo);
+      cmd.Parameters.AddWithValue("@id",    id);
 
       cmd.ExecuteNonQuery();
 
     }
-
-
-
-
   }
 }

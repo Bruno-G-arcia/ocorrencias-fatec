@@ -8,57 +8,57 @@ build_property.PlatformNeutralAssembly =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = OcorrenciasWeb
 build_property.RootNamespace = OcorrenciasWeb
-build_property.ProjectDir = C:\Users\Bruno\Source\Repos\Bruno-G-arcia\ocorrencias-fatec\
+build_property.ProjectDir = C:\Users\Bruno\source\repos\Bruno-G-arcia\ocorrencias-fatec\
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\Bruno\Source\Repos\Bruno-G-arcia\ocorrencias-fatec
+build_property.MSBuildProjectDirectory = C:\Users\Bruno\source\repos\Bruno-G-arcia\ocorrencias-fatec
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/Bruno/Source/Repos/Bruno-G-arcia/ocorrencias-fatec/Pages/Error.cshtml]
+[C:/Users/Bruno/source/repos/Bruno-G-arcia/ocorrencias-fatec/Pages/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRXJyb3IuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Bruno/Source/Repos/Bruno-G-arcia/ocorrencias-fatec/Pages/Index.cshtml]
+[C:/Users/Bruno/source/repos/Bruno-G-arcia/ocorrencias-fatec/Pages/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Bruno/Source/Repos/Bruno-G-arcia/ocorrencias-fatec/Pages/Privacy.cshtml]
+[C:/Users/Bruno/source/repos/Bruno-G-arcia/ocorrencias-fatec/Pages/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJpdmFjeS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Bruno/Source/Repos/Bruno-G-arcia/ocorrencias-fatec/Pages/Shared/_ValidationScriptsPartial.cshtml]
+[C:/Users/Bruno/source/repos/Bruno-G-arcia/ocorrencias-fatec/Pages/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Bruno/Source/Repos/Bruno-G-arcia/ocorrencias-fatec/Pages/_ViewImports.cshtml]
+[C:/Users/Bruno/source/repos/Bruno-G-arcia/ocorrencias-fatec/Pages/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Bruno/Source/Repos/Bruno-G-arcia/ocorrencias-fatec/Pages/_ViewStart.cshtml]
+[C:/Users/Bruno/source/repos/Bruno-G-arcia/ocorrencias-fatec/Pages/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Bruno/Source/Repos/Bruno-G-arcia/ocorrencias-fatec/Views/Layout.cshtml]
+[C:/Users/Bruno/source/repos/Bruno-G-arcia/ocorrencias-fatec/Views/Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTGF5b3V0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Bruno/Source/Repos/Bruno-G-arcia/ocorrencias-fatec/Views/Login/Login.cshtml]
+[C:/Users/Bruno/source/repos/Bruno-G-arcia/ocorrencias-fatec/Views/Login/Login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9naW5cTG9naW4uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Bruno/Source/Repos/Bruno-G-arcia/ocorrencias-fatec/Views/Ocorrencia/Create.cshtml]
+[C:/Users/Bruno/source/repos/Bruno-G-arcia/ocorrencias-fatec/Views/Ocorrencia/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT2NvcnJlbmNpYVxDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Bruno/Source/Repos/Bruno-G-arcia/ocorrencias-fatec/Views/Ocorrencia/Index.cshtml]
+[C:/Users/Bruno/source/repos/Bruno-G-arcia/ocorrencias-fatec/Views/Ocorrencia/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT2NvcnJlbmNpYVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Bruno/Source/Repos/Bruno-G-arcia/ocorrencias-fatec/Views/Ocorrencia/Update.cshtml]
+[C:/Users/Bruno/source/repos/Bruno-G-arcia/ocorrencias-fatec/Views/Ocorrencia/Update.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT2NvcnJlbmNpYVxVcGRhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Bruno/Source/Repos/Bruno-G-arcia/ocorrencias-fatec/Pages/Shared/_Layout.cshtml]
+[C:/Users/Bruno/source/repos/Bruno-G-arcia/ocorrencias-fatec/Pages/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-cnm0c4i30f

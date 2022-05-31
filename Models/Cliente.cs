@@ -1,6 +1,6 @@
 namespace OcorrenciasWeb.Models
 {
-    public class Cliente : Pessoa
+    public class Cliente : Usuario
     {
         public int IdCliente { get; set; }
     }
