@@ -1,12 +1,12 @@
 ﻿@{
     var returnUrl = ViewData["ReturnUrl"] as string;
     var error = TempData["Error"] as string;
-    Layout = "/Views/Layout.cshtml";
+    Layout = "/Views/LayoutL.cshtml";
 }
-<div class="container">
+<div class="LogContainer">
 
 
-    <div class="LogContainer">
+    <div class="LogBox">
         <div class="title">Login</div>
         @if (!string.IsNullOrEmpty(error))
         {

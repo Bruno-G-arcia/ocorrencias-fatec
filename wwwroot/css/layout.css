@@ -44,7 +44,7 @@ body{
     font-size: 1.5rem;
 }
 
-.LogContainer{
+.LogBox{
     display: flex;
     flex-direction: column;
     max-width: 80vw;
@@ -52,6 +52,15 @@ body{
     background-color: var(--pastel-1);
     box-shadow: 2px 2px 10px 5px black;
     align-items: center;
+}
+
+.LogContainer{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    min-height: 80vh;
 }
 
 .title{
@@ -78,12 +87,10 @@ form input{
     padding: 0.2rem 0;
 }
 
-.container{
-   display: flex;
-   align-items: center;
-   flex-direction: column;
-   justify-content: center;
-   margin-top: 4rem;
+.mainContainer{
+    display:flex;
+    width: 100%;
+    min-height: 80vh;
 }
 
 .HomeTitle{
@@ -98,13 +105,10 @@ form input{
 .main{
     padding: 0 1rem 0 0;
     min-height: 80vh;
-}
-
-.HomeContainer{
     display: flex;
     flex-direction: row;
-    min-height: 80vh;
 }
+
 
 .navigation{
     background-color: #493A63;
@@ -112,13 +116,14 @@ form input{
     box-shadow: 5px 0px 5px 1px black;
 }
 
-.HomeMain{
-    padding-left: 1rem;
-    width: 100%;
-}
 
 .nav-link{
     color: white;
     font-family: Verdana;
     border-bottom: 2px solid var(--pastel-1);
+}
+
+.HomeContainer{
+    padding-left: 2rem;
+    width: 100%;
 }

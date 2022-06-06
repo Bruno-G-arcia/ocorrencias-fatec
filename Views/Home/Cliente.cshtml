@@ -6,16 +6,9 @@
   var idCliente = User.Claims.FirstOrDefault(c => c.Type == "idCliente").Value;
 
 }
-<div class="HomeContainer">
-  <div class="navigation">
-    <nav class="nav flex-column">
-      <a class="nav-link" href="/Home/Cliente">Meus Dados</a>
-      <a class="nav-link" href="#">Minhas Ocorrencias</a>
-      <a class="nav-link" href="/ocorrencia/create">Criar Ocorrencia</a>
-    </nav>
 
-  </div>
-  <div class="HomeMain">
+  
+ <div class="HomeContainer">
     <div class="HomeTitle"> Bem vindo @User.Identity.Name !</div>
 
     <h3>Minhas Ocorrencias:</h3>
@@ -47,6 +40,6 @@
     </table>
 
     <a href="/Ocorrencia/Create" class="btn btn-primary">Criar Nova Ocorrencia</a>
-  </div>
+    </div>
 
-</div>
+

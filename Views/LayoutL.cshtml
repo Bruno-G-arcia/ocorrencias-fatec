@@ -11,18 +11,7 @@
     </div>
     
     <div class="main">
-        <div class="navigation">
-            <nav class="nav flex-column">
-            @if(User.IsInRole("Cliente")){
-                <a class="nav-link" href="/Home/Cliente">Meus Dados</a>
-                <a class="nav-link" href="/Home/Cliente">Minhas Ocorrencias</a>
-                <a class="nav-link" href="/ocorrencia/create">Criar Ocorrencia</a>
-            }
-            </nav>
-        </div>
-        <div class="mainContainer">
-            @RenderBody()
-        </div>
+        @RenderBody()
     </div>
     <div class = "footer"> by garciaBruno</div>
 </body>
