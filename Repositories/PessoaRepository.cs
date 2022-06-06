@@ -87,7 +87,7 @@ namespace OcorrenciasWeb.Repositories
       cmd.CommandText = @"UPDATE Pessoa 
       SET Nome    = @nome,
       Cpf         = @cpf,
-      Telefone    = @telefone,
+      Telefone    = @telefone
       WHERE IdPessoa = @id;";
 
       cmd.Parameters.AddWithValue("@nomel", pessoa.Nome);

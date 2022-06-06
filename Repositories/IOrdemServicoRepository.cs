@@ -4,10 +4,10 @@ namespace OcorrenciasWeb.Repositories
 {
     public interface IOrdemServicoRepository
     {
-      void Create(Ocorrencia ocorrencia); 
-      List<Ocorrencia> Read();
-      Ocorrencia Read(int id);
-      void Update(int id, Ocorrencia ocorrencia);
+      void Create(OrdemServico ordemServico); 
+      List<OrdemServico> Read();
+      OrdemServico Read(int id);
+      void Update(int id, OrdemServico ordemServico);
       void Delete(int id); 
     }
 }

@@ -1,0 +1,52 @@
+@using OcorrenciasWeb.Models
+@using System.Security.Claims;
+@{
+  ViewBag.Title = "Home";
+  Layout = "/Views/Layout.cshtml";
+  var idCliente = User.Claims.FirstOrDefault(c => c.Type == "idCliente").Value;
+
+}
+<div class="HomeContainer">
+  <div class="navigation">
+    <nav class="nav flex-column">
+      <a class="nav-link" href="/Home/Cliente">Meus Dados</a>
+      <a class="nav-link" href="#">Minhas Ocorrencias</a>
+      <a class="nav-link" href="/ocorrencia/create">Criar Ocorrencia</a>
+    </nav>
+
+  </div>
+  <div class="HomeMain">
+    <div class="HomeTitle"> Bem vindo @User.Identity.Name !</div>
+
+    <h3>Minhas Ocorrencias:</h3>
+    <table class="table table-hover">
+      <tr>
+        <th>Ocorrencia</th>
+        <th>Titulo</th>
+        <th>Abertura</th>
+        <th>Prazo</th>
+      </tr>
+      @if (Model != null)
+      {
+        @foreach (Ocorrencia o in Model)
+        {
+
+          <tr>
+            <td>@o.IdOcorrencia</td>
+            <td>@o.Titulo</td>
+            <td>@o.Abertura.ToString("dd/MM/yyyy")</td>
+            <td>@o.Prazo.ToString("dd/MM/yyyy")</td>
+            <td>
+              <a href="/Ocorrencia/Delete/@o.IdOcorrencia">Detalhes</a>
+            </td>
+          </tr>
+
+        }
+      }
+
+    </table>
+
+    <a href="/Ocorrencia/Create" class="btn btn-primary">Criar Nova Ocorrencia</a>
+  </div>
+
+</div>

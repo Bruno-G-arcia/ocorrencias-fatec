@@ -3,7 +3,7 @@ using MySqlConnector;
 
 namespace OcorrenciasWeb.Repositories
 {
-  public class ClienteRepository : DBContext
+  public class ClienteRepository : DBContext, IClienteRepository
   {
 
     public void Create(Cliente cliente)
@@ -89,6 +89,32 @@ namespace OcorrenciasWeb.Repositories
       return cliente;
     }
 
+    public Cliente ReadUsuario(int id)
+    {
+      MySqlCommand cmd = new MySqlCommand();
+      cmd.Connection = conn;
+      cmd.CommandText = @"SELECT * FROM vCliente
+      WHERE IdUsuario = @id;";
+
+      cmd.Parameters.AddWithValue("@id", id);
+      Cliente cliente = new Cliente();
+
+      using (MySqlDataReader reader = cmd.ExecuteReader())
+      {
+        while (reader.Read())
+        {
+          cliente.IdCliente = (int)reader["IdCliente"];
+          cliente.IdUsuario = (int)reader["IdUsuario"];
+          cliente.IdPessoa  = (int)reader["IdPessoa"];
+          cliente.Cpf       = (string)reader["CPF"];
+          cliente.Telefone  = (string)reader["Telefone"];
+          cliente.Nome      = (string)reader["Nome"];
+          cliente.Email     = (string)reader["Email"];
+        }
+      }
+      return cliente;
+    }
+
     public void Update(int id, Cliente cliente)
     {
       MySqlCommand cmd = new MySqlCommand();
@@ -96,7 +122,7 @@ namespace OcorrenciasWeb.Repositories
       cmd.CommandText = 
       @"UPDATE Cliente 
       SET 
-      Cargo         = @email,
+      Email               = @email,
       WHERE IdFuncionario = @id;";
 
       cmd.Parameters.AddWithValue("@email",    cliente.Email);
@@ -105,5 +131,6 @@ namespace OcorrenciasWeb.Repositories
       cmd.ExecuteNonQuery();
 
     }
+
   }
 }

@@ -1,17 +1,21 @@
 ﻿@{
     var returnUrl = ViewData["ReturnUrl"] as string;
     var error = TempData["Error"] as string;
-
+    Layout = "/Views/Layout.cshtml";
 }
+<div class="container">
 
-<h1>Login</h1>
-@if(!string.IsNullOrEmpty(error))
-{
-    <h2 class="alert-danger">@error</h2>
-}
 
-<form action="/login?ReturnUrl=@System.Net.WebUtility.UrlEncode(returnUrl)" method="post">
-    <input type ="text"     name="email"    placeholder="email" />
-    <input type ="text"     name="senha"    placeholder="senha" />
-    <input type ="submit"   value="login" />
-</form>
+    <div class="LogContainer">
+        <div class="title">Login</div>
+        @if (!string.IsNullOrEmpty(error))
+        {
+            <h2 class="alert-danger">@error</h2>
+        }
+        <form action="/login?ReturnUrl=@System.Net.WebUtility.UrlEncode(returnUrl)" method="post">
+            <input type="text" name="email" placeholder="email" />
+            <input type="text" name="senha" placeholder="senha" />
+            <input class="ipBtn" type="submit" value="Login" />
+        </form>
+    </div>
+</div>

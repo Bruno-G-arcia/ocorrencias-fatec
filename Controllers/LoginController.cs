@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using System.Security.Claims;
-using Microsoft.AspNetCore.Authentication;
 using OcorrenciasWeb.Repositories;
 
 namespace OcorrenciasWeb.Controllers
@@ -10,11 +10,11 @@ namespace OcorrenciasWeb.Controllers
   public class LoginController : Controller
   {
     private readonly IUsuarioRepository UsuRep;
-    private readonly IOcorrenciaRepository OcRep;
-    public LoginController(IUsuarioRepository repository, IOcorrenciaRepository oRepository)
+    public IClienteRepository ClRep;
+    public LoginController(IUsuarioRepository UsuRep)
     {
-      this.repository = repository;
-      this.oRepository = oRepository;
+      this.UsuRep = UsuRep;
+      this.ClRep = new ClienteRepository();
     }
     
     [HttpGet("login")]
@@ -33,20 +33,21 @@ namespace OcorrenciasWeb.Controllers
         returnUrl = "/ocorrencia/index";
       }
 
-      var usuario = repository.Auth(email, senha);
+      var usuario = UsuRep.Auth(email, senha);
             
-      if (usuario != null)
+      if (usuario.Tipo == "Cliente")
       {
-        if (usuario.Tipo == "Funcionario")
-        {
-          this.AuthFuncionario();
-        }
-        else
-        {
-          this.AuthCliente();
-        }
+        var cliente = ClRep.ReadUsuario(usuario.IdUsuario);
+       
+        var claims = new List<Claim>();
+        claims.Add(new Claim("idCliente", cliente.IdCliente.ToString()));
+        claims.Add(new Claim(ClaimTypes.Name, cliente.Nome));
+        claims.Add(new Claim(ClaimTypes.Role, usuario.Tipo));
+        var claimsIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
+        var claimsPrincipal = new ClaimsPrincipal(claimsIdentity);
+        await HttpContext.SignInAsync(claimsPrincipal);
 
-        return Redirect(returnUrl);
+        return RedirectToAction("Cliente", "Home");
       }
       TempData["Error"] = "Invalid Username or Password";
       return View("login");
@@ -57,16 +58,6 @@ namespace OcorrenciasWeb.Controllers
     {
       await HttpContext.SignOutAsync();
       return RedirectToAction("Login", "Login");
-
-    }
-
-    public async void AuthCliente(Cliente cliente)
-    {
-
-    }
-
-    public async void AuthFuncionario(Funcionario funcionario)
-    {
 
     }
 

@@ -41,16 +41,6 @@ namespace OcorrenciasWeb.Repositories
       cmd.ExecuteNonQuery();
     }
 
-    public override bool Equals(object? obj)
-    {
-      return base.Equals(obj);
-    }
-
-    public override int GetHashCode()
-    {
-      return base.GetHashCode();
-    }
-
     public List<Ocorrencia> Read()
     {
       MySqlCommand cmd = new MySqlCommand();
@@ -58,6 +48,37 @@ namespace OcorrenciasWeb.Repositories
       cmd.CommandText = @"SELECT * FROM Ocorrencia;";
       List<Ocorrencia> ocorrencias = new List<Ocorrencia>();
 
+      using (MySqlDataReader reader = cmd.ExecuteReader())
+      {
+        while (reader.Read())
+        {
+          ocorrencias.Add(
+          new Ocorrencia
+          {
+            IdOcorrencia = (int)reader["IdOcorrencia"],
+            Titulo = (string)reader["Titulo"],
+            Abertura = (DateTime)reader["Abertura"],
+            Prazo = (DateTime)reader["Prazo"],
+            Prioridade = (string)reader["Prioridade"],
+            IdCliente = (int)reader["IdCliente"]
+          });
+        }
+
+      }
+
+      return ocorrencias;
+    }
+
+    public List<Ocorrencia> ReadCliente(int id)
+    {
+      MySqlCommand cmd = new MySqlCommand();
+      cmd.Connection = conn;
+      cmd.CommandText = @"SELECT * FROM Ocorrencia
+      WHERE Ocorrencia.IdCliente = @id;";
+
+      cmd.Parameters.AddWithValue("@id", id);
+
+      List<Ocorrencia> ocorrencias = new List<Ocorrencia>();
       using (MySqlDataReader reader = cmd.ExecuteReader())
       {
         while (reader.Read())
