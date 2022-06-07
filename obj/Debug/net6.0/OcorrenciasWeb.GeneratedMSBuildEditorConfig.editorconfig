@@ -8,69 +8,97 @@ build_property.PlatformNeutralAssembly =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = OcorrenciasWeb
 build_property.RootNamespace = OcorrenciasWeb
-build_property.ProjectDir = C:\Users\Bruno\source\repos\Bruno-G-arcia\ocorrencias-fatec\
+build_property.ProjectDir = /home/garcia/Documents/source/repos/ocorrencias-fatec-1/
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\Bruno\source\repos\Bruno-G-arcia\ocorrencias-fatec
+build_property.MSBuildProjectDirectory = /home/garcia/Documents/source/repos/ocorrencias-fatec-1
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/Bruno/source/repos/Bruno-G-arcia/ocorrencias-fatec/Pages/Error.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRXJyb3IuY3NodG1s
+[/home/garcia/Documents/source/repos/ocorrencias-fatec-1/Pages/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvRXJyb3IuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Bruno/source/repos/Bruno-G-arcia/ocorrencias-fatec/Pages/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXguY3NodG1s
+[/home/garcia/Documents/source/repos/ocorrencias-fatec-1/Pages/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Bruno/source/repos/Bruno-G-arcia/ocorrencias-fatec/Pages/Privacy.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJpdmFjeS5jc2h0bWw=
+[/home/garcia/Documents/source/repos/ocorrencias-fatec-1/Pages/Privacy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvUHJpdmFjeS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Bruno/source/repos/Bruno-G-arcia/ocorrencias-fatec/Pages/Shared/_ValidationScriptsPartial.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+[/home/garcia/Documents/source/repos/ocorrencias-fatec-1/Pages/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvU2hhcmVkL19WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Bruno/source/repos/Bruno-G-arcia/ocorrencias-fatec/Pages/_ViewImports.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+[/home/garcia/Documents/source/repos/ocorrencias-fatec-1/Pages/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Bruno/source/repos/Bruno-G-arcia/ocorrencias-fatec/Pages/_ViewStart.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
+[/home/garcia/Documents/source/repos/ocorrencias-fatec-1/Pages/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Bruno/source/repos/Bruno-G-arcia/ocorrencias-fatec/Views/Cliente/Update.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xpZW50ZVxVcGRhdGUuY3NodG1s
+[/home/garcia/Documents/source/repos/ocorrencias-fatec-1/Views/Cliente/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQ2xpZW50ZS9DcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Bruno/source/repos/Bruno-G-arcia/ocorrencias-fatec/Views/Home/Cliente.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxDbGllbnRlLmNzaHRtbA==
+[/home/garcia/Documents/source/repos/ocorrencias-fatec-1/Views/Cliente/Update.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQ2xpZW50ZS9VcGRhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Bruno/source/repos/Bruno-G-arcia/ocorrencias-fatec/Views/Layout.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTGF5b3V0LmNzaHRtbA==
+[/home/garcia/Documents/source/repos/ocorrencias-fatec-1/Views/Funcionario/Update.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvRnVuY2lvbmFyaW8vVXBkYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Bruno/source/repos/Bruno-G-arcia/ocorrencias-fatec/Views/LayoutL.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTGF5b3V0TC5jc2h0bWw=
+[/home/garcia/Documents/source/repos/ocorrencias-fatec-1/Views/Home/Cliente.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9DbGllbnRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Bruno/source/repos/Bruno-G-arcia/ocorrencias-fatec/Views/Login/Login.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9naW5cTG9naW4uY3NodG1s
+[/home/garcia/Documents/source/repos/ocorrencias-fatec-1/Views/Home/Funcionario.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9GdW5jaW9uYXJpby5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Bruno/source/repos/Bruno-G-arcia/ocorrencias-fatec/Views/Ocorrencia/Create.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT2NvcnJlbmNpYVxDcmVhdGUuY3NodG1s
+[/home/garcia/Documents/source/repos/ocorrencias-fatec-1/Views/Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvTGF5b3V0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Bruno/source/repos/Bruno-G-arcia/ocorrencias-fatec/Views/Ocorrencia/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT2NvcnJlbmNpYVxJbmRleC5jc2h0bWw=
+[/home/garcia/Documents/source/repos/ocorrencias-fatec-1/Views/LayoutL.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvTGF5b3V0TC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Bruno/source/repos/Bruno-G-arcia/ocorrencias-fatec/Views/Ocorrencia/Update.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT2NvcnJlbmNpYVxVcGRhdGUuY3NodG1s
+[/home/garcia/Documents/source/repos/ocorrencias-fatec-1/Views/Login/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvTG9naW4vTG9naW4uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Bruno/source/repos/Bruno-G-arcia/ocorrencias-fatec/Pages/Shared/_Layout.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9MYXlvdXQuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = b-cnm0c4i30f
+[/home/garcia/Documents/source/repos/ocorrencias-fatec-1/Views/Ocorrencia/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvT2NvcnJlbmNpYS9DcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/home/garcia/Documents/source/repos/ocorrencias-fatec-1/Views/Ocorrencia/CreateF.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvT2NvcnJlbmNpYS9DcmVhdGVGLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/home/garcia/Documents/source/repos/ocorrencias-fatec-1/Views/Ocorrencia/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvT2NvcnJlbmNpYS9JbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/home/garcia/Documents/source/repos/ocorrencias-fatec-1/Views/Ocorrencia/Update.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvT2NvcnJlbmNpYS9VcGRhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/home/garcia/Documents/source/repos/ocorrencias-fatec-1/Views/OrdemServico/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvT3JkZW1TZXJ2aWNvL0NyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/home/garcia/Documents/source/repos/ocorrencias-fatec-1/Views/OrdemServico/Detalhes.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvT3JkZW1TZXJ2aWNvL0RldGFsaGVzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/home/garcia/Documents/source/repos/ocorrencias-fatec-1/Views/OrdemServico/Update.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvT3JkZW1TZXJ2aWNvL1VwZGF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/home/garcia/Documents/source/repos/ocorrencias-fatec-1/Pages/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvU2hhcmVkL19MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-n7ujb8hdqc

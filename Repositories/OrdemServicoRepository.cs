@@ -11,14 +11,13 @@ namespace OcorrenciasWeb.Repositories
       MySqlCommand cmd = new MySqlCommand();
       cmd.Connection = conn;
       cmd.CommandText =
-      @"INSERT INTO OrdemServico (IdOcorrencia, Titulo, Descricao, Abertura, Status, IdFuncionario) 
-      VALUES(@idOcorrencia, @titulo, @descricao, @abertura, @status, @idFuncionario);";
+      @"INSERT INTO OrdemServico (IdOcorrencia, Titulo, Descricao, Abertura, IdFuncionario) 
+      VALUES(@IdOcorrencia, @titulo, @descricao, @abertura, @idFuncionario);";
 
       cmd.Parameters.AddWithValue("@idOcorrencia",  ordemServico.IdOcorrencia);
       cmd.Parameters.AddWithValue("@titulo",        ordemServico.Titulo);
       cmd.Parameters.AddWithValue("@descricao",     ordemServico.Descricao);
       cmd.Parameters.AddWithValue("@abertura",      ordemServico.Abertura);
-      cmd.Parameters.AddWithValue("@status",        ordemServico.Status);
       cmd.Parameters.AddWithValue("@idFuncionario", ordemServico.IdFuncionario);
 
       cmd.ExecuteNonQuery();
@@ -54,7 +53,33 @@ namespace OcorrenciasWeb.Repositories
             Titulo          = (string)reader["Titulo"],
             Descricao       = (string)reader["Descricao"],
             Abertura        = (DateTime)reader["Abertura"],
-            Status          = (string)reader["Status"],
+            IdFuncionario   = (int)reader["IdFuncionario"]
+          });
+        }
+
+      }
+      return ordemServicos;
+    }
+
+    public List<OrdemServico> ReadOc(int idOc)
+    {
+      MySqlCommand cmd = new MySqlCommand();
+      cmd.Connection = conn;
+      cmd.CommandText = @"SELECT * FROM OrdemServico WHERE IdOcorrencia = @idOc;";
+      List<OrdemServico> ordemServicos  = new List<OrdemServico>();
+
+      cmd.Parameters.AddWithValue("@idOc", idOc);
+      using (MySqlDataReader reader = cmd.ExecuteReader())
+      {
+        while (reader.Read())
+        {
+          ordemServicos.Add(
+          new OrdemServico
+          {
+            IdOrdemServico  = (int)reader["IdOrdemServico"],
+            IdOcorrencia    = (int)reader["IdOcorrencia"],
+            Titulo          = (string)reader["Titulo"],
+            Descricao       = (string)reader["Descricao"],
             IdFuncionario   = (int)reader["IdFuncionario"]
           });
         }
@@ -81,7 +106,6 @@ namespace OcorrenciasWeb.Repositories
           ordemServico.Titulo = (string)reader["Titulo"];
           ordemServico.Descricao = (string)reader["Descricao"];
           ordemServico.Abertura = (DateTime)reader["Abertura"];
-          ordemServico.Status = (string)reader["Status"];
           ordemServico.IdFuncionario = (int)reader["IdFuncionario"];
 
         }
@@ -100,7 +124,6 @@ namespace OcorrenciasWeb.Repositories
       Titulo        = @titulo,
       Descricao     = @descricao,
       Abertura      = @abertura,
-      Status        = @status,
       IdFuncionario = @IdFuncionario
       WHERE IdFuncionario = @id;";
 
@@ -108,7 +131,6 @@ namespace OcorrenciasWeb.Repositories
       cmd.Parameters.AddWithValue("@titulo", ordemServico.Titulo);
       cmd.Parameters.AddWithValue("@descricao", ordemServico.Descricao);
       cmd.Parameters.AddWithValue("@abertura", ordemServico.Abertura);
-      cmd.Parameters.AddWithValue("@status", ordemServico.Status);
       cmd.Parameters.AddWithValue("@idFuncionario", ordemServico.IdFuncionario);
       cmd.Parameters.AddWithValue("@id", id);
 

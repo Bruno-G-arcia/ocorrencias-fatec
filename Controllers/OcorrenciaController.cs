@@ -29,7 +29,7 @@ namespace OcorrenciasWeb.Controllers
         public ActionResult Create(Ocorrencia ocorrencia)
         {
             repository.Create(ocorrencia);
-            return RedirectToAction("Index");
+            return RedirectToAction("Main", "Home");
         }
 
         public ActionResult Delete(int id)
@@ -50,6 +50,13 @@ namespace OcorrenciasWeb.Controllers
         {
             repository.Update(id, ocorrencia);
             return RedirectToAction("Index");
-        } 
+        }
+
+        public ActionResult Detalhes(int id)
+        {
+            var ocorrencia = repository.Read(id);
+            return View(ocorrencia);
+        }
+
     }
 }

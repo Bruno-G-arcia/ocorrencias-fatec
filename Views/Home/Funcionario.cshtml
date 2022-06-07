@@ -2,13 +2,12 @@
 @using System.Security.Claims;
 @{
   Layout = "/Views/Layout.cshtml";
-  var idCliente = User.Claims.FirstOrDefault(c => c.Type == "idCliente").Value;
 }
 
  <div class="HomeContainer">
-    <div class="HomeTitle"> Bem vindo @ViewBag.ClNome !</div>
+    <div class="HomeTitle"> Bem vindo @User.Identity.Name !</div>
 
-    <h3>Minhas Ocorrencias:</h3>
+    <h3>Ocorrencias:</h3>
     <table class="table table-hover">
       <tr>
         <th>Ocorrencia</th>
@@ -29,7 +28,7 @@
             <td>@o.Prazo.ToString("dd/MM/yyyy")</td>
             <td>@o.Status</td>
             <td>
-              <a href="/Ocorrencia/Delete/@o.IdOcorrencia">Detalhes</a>
+              <a href="/OrdemServico/Detalhes?idOcorrencia=@o.IdOcorrencia">Detalhes</a>  
             </td>
           </tr>
 

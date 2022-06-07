@@ -1,5 +1,7 @@
 USE OCORRENCIAS;
 
+drop VIEW vCliente;
+
 CREATE VIEW vCliente AS
 SELECT Usuario.IdUsuario, Usuario.Email,
 Usuario.Tipo, Pessoa.CPF, Pessoa.IdPessoa,

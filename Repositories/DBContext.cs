@@ -6,7 +6,7 @@ namespace OcorrenciasWeb.Repositories
   {
     
     private string strConn = "server=localhost;uid=onurb;" +
-    "pwd=SQL123@;database=OCORRENCIAS";
+    "pwd=SQL123@;database=OCORRENCIAS;AllowUserVariables=True;";
 
     protected MySqlConnection conn;
 

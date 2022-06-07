@@ -1,0 +1,27 @@
+@using OcorrenciasWeb.Models
+@{
+    Layout = "/Views/Layout.cshtml";
+}
+
+
+<form action="/Ocorrencia/Create" method="POST">
+    <div>
+        <label>Titulo</label>
+        <input type="text" class="form-control" name="Titulo"/>
+    </div>
+
+    <div>
+        <label>Descrição</label>
+        <textarea name="Descricao" class="form-control"></textarea>
+    </div>
+    <div>
+        <label>Prioridade</label>
+        <textarea name="Descricao" class="form-control"></textarea>
+    </div>
+    <div>
+        <label>Prazo</label>
+        <input type="date" name="Prazo" class="form-control"/>
+    </div>
+        
+    <button class="btn btn-primary" style="margin-top: 20px">Salvar</button>
+</form>

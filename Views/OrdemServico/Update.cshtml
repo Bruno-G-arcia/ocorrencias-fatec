@@ -1,0 +1,33 @@
+@using OcorrenciasWeb.Models
+@model OrdemServico
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+@{
+    Layout = "/Views/Layout.cshtml";
+    if(Model == null){
+        return;
+    }
+}
+<form action="/OrdemServico/Update/@Model.IdOrdemServico" method="POST">
+    <div>
+        <label>Titulo</label>
+        <input type="text" class="form-control" name="Titulo" value="@Model.Titulo"/>
+    </div>
+
+   <div>
+        <label>Descricao</label>
+        <textarea name="Descricao" class="form-control">@Model.Descricao</textarea>
+    </div>
+
+   <div>
+        <label>Status</label>
+        <select name="Status" id="Status">
+            <option value="Suporte">Suporte</option>
+            <option value="Q.A.">Q.A.</option>
+            <option value="Finalizada">Finalizada</option>
+        </select>
+    </div>
+
+
+    <button class="btn btn-primary" style="margin-top: 20px">Salvar</button>
+</form>

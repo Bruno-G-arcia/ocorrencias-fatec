@@ -1,0 +1,33 @@
+@using OcorrenciasWeb.Models
+@{
+    Layout = "/Views/LayoutL.cshtml";
+}
+
+<div class="CadastroContainer">
+    <form action="/Cliente/Create" method="POST">
+        <div>
+            <label>Nome</label>
+            <input type="text" class="form-control" name="Nome" />
+        </div>
+        <div>
+            <label>CPF</label>
+            <input type="text" class="form-control" name="CPF" />
+        </div>
+        <div>
+            <label>Telefone</label>
+            <input type="text" class="form-control" name="Telefone" />
+        </div>
+
+        <div>
+            <label>Email</label>
+            <input type="text" class="form-control" name="Email" />
+        </div>
+
+        <div>
+            <label>Senha</label>
+            <input type="text" class="form-control" name="Senha" />
+        </div>
+
+        <button class="btn btn-primary" style="margin-top: 20px">Salvar</button>
+    </form>
+</div>

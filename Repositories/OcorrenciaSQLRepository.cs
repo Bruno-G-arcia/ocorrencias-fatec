@@ -60,7 +60,8 @@ namespace OcorrenciasWeb.Repositories
             Abertura = (DateTime)reader["Abertura"],
             Prazo = (DateTime)reader["Prazo"],
             Prioridade = (string)reader["Prioridade"],
-            IdCliente = (int)reader["IdCliente"]
+            IdCliente = (int)reader["IdCliente"],
+            Status    = (string)reader["Status"]
           });
         }
 
@@ -91,7 +92,9 @@ namespace OcorrenciasWeb.Repositories
             Abertura = (DateTime)reader["Abertura"],
             Prazo = (DateTime)reader["Prazo"],
             Prioridade = (string)reader["Prioridade"],
-            IdCliente = (int)reader["IdCliente"]
+            IdCliente = (int)reader["IdCliente"],
+            Status    = (string)reader["Status"]
+            
           });
         }
 
@@ -122,6 +125,7 @@ namespace OcorrenciasWeb.Repositories
           ocorrencia.Prazo        = (DateTime)reader["Prazo"];
           ocorrencia.Prioridade   = (string)  reader["Prioridade"];
           ocorrencia.IdCliente    = (int)     reader["IdCliente"];
+          ocorrencia.Status       = (string)  reader["Status"];
         }
       }
       return ocorrencia;
@@ -142,17 +146,13 @@ namespace OcorrenciasWeb.Repositories
       Abertura    = @abertura,
       Prazo       = @prazo,
       Prioridade  = @prioridade,
+      Status      = @status,
       IdCliente   = @idCliente
       WHERE Ocorrencia.IdOcorrencia = @id;";
 
       string abertura =  DateTime.Today.ToString("yyyy-MM-dd")  ;
       string prazo =   ocorrencia.Prazo.ToString("yyyy-MM-dd")  ;
       int IdCliente = 1;
-
-      System.Diagnostics.Debug.WriteLine(ocorrencia);
-
-      Console.Clear();
-      Console.WriteLine(ocorrencia);
 
       cmd.Parameters.AddWithValue("@id", id);
       cmd.Parameters.AddWithValue("@titulo", ocorrencia.Titulo);
@@ -161,6 +161,7 @@ namespace OcorrenciasWeb.Repositories
       cmd.Parameters.AddWithValue("@prazo", prazo);
       cmd.Parameters.AddWithValue("@prioridade", ocorrencia.Prioridade);
       cmd.Parameters.AddWithValue("@idCliente", IdCliente);
+      cmd.Parameters.AddWithValue("@status", ocorrencia.Status);
 
       cmd.ExecuteNonQuery();
 

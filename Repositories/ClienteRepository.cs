@@ -21,6 +21,32 @@ namespace OcorrenciasWeb.Repositories
       cmd.ExecuteNonQuery();
     }
 
+    public void CreateCompleto(Cliente cliente)
+    { 
+      MySqlCommand cmd = new MySqlCommand();
+      cmd.Connection = conn;
+      cmd.CommandText = 
+      @"INSERT INTO Pessoa (Nome, CPF, Telefone) 
+      VALUES(@nome, @cpf, @telefone);
+      SET @vIdPessoa = LAST_INSERT_ID();
+      INSERT INTO Usuario (Email, Senha, Tipo)
+      VALUES (@email, @senha, @tipo);
+      SET @vIdUsuario = LAST_INSERT_ID();
+      INSERT into Cliente (IdPessoa, IdUsuario )
+      VALUES(@vIdUsuario, @vIdPessoa);
+      ";
+
+      cmd.Parameters.AddWithValue("@nome",      cliente.Nome);
+      cmd.Parameters.AddWithValue("@cpf",       cliente.Cpf);
+      cmd.Parameters.AddWithValue("@telefone",  cliente.Telefone);
+      cmd.Parameters.AddWithValue("@email",     cliente.Email);
+      cmd.Parameters.AddWithValue("@senha",     cliente.Senha);
+      cmd.Parameters.AddWithValue("@tipo",      "Cliente");
+      
+
+      cmd.ExecuteNonQuery();
+    }
+
     public void Delete(int id)
     {
       MySqlCommand cmd = new MySqlCommand();

@@ -2,6 +2,7 @@
     var returnUrl = ViewData["ReturnUrl"] as string;
     var error = TempData["Error"] as string;
     Layout = "/Views/LayoutL.cshtml";
+    ViewBag.Title = "Login";
 }
 <div class="LogContainer">
 
@@ -17,5 +18,6 @@
             <input type="text" name="senha" placeholder="senha" />
             <input class="ipBtn" type="submit" value="Login" />
         </form>
+        <a href="/Cliente/Create">Cadastro</a>
     </div>
 </div>

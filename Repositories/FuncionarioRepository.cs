@@ -3,7 +3,7 @@ using MySqlConnector;
 
 namespace OcorrenciasWeb.Repositories
 {
-  public class FuncionarioRepository : DBContext
+  public class FuncionarioRepository : DBContext, IFuncionarioRepository
   {
 
     public void Create(Funcionario funcionario)
@@ -63,6 +63,32 @@ namespace OcorrenciasWeb.Repositories
       }
       return funcionarios;
     }
+
+    public Funcionario ReadUsuario(int id)
+    {
+      MySqlCommand cmd = new MySqlCommand();
+      cmd.Connection = conn;
+      cmd.CommandText = @"SELECT * FROM vFuncionario
+      WHERE IdUsuario = @id;";
+
+      cmd.Parameters.AddWithValue("@id", id);
+      Funcionario funcionario = new Funcionario();
+
+      using (MySqlDataReader reader = cmd.ExecuteReader())
+      {
+        while (reader.Read())
+        {
+          funcionario.IdFuncionario= (int)reader["IdFuncionario"];
+          funcionario.IdUsuario = (int)reader["IdUsuario"];
+          funcionario.IdPessoa  = (int)reader["IdPessoa"];
+          funcionario.Cpf       = (string)reader["CPF"];
+          funcionario.Telefone  = (string)reader["Telefone"];
+          funcionario.Nome      = (string)reader["Nome"];
+          funcionario.Email     = (string)reader["Email"];
+        }
+      }
+      return funcionario;
+    }
         
     public Funcionario Read(int id)
     {
@@ -86,7 +112,6 @@ namespace OcorrenciasWeb.Repositories
             funcionario.Telefone      = (string)reader["Telefone"];
             funcionario.Nome          = (string)reader["Nome"];
             funcionario.Email         = (string)reader["CPF"];
-            funcionario.Senha         = (string)reader["Senha"];
         }
       }
       return funcionario;
@@ -104,6 +129,28 @@ namespace OcorrenciasWeb.Repositories
 
       cmd.Parameters.AddWithValue("@cargo",    funcionario.Cargo);
       cmd.Parameters.AddWithValue("@id",    id);
+
+      cmd.ExecuteNonQuery();
+
+    }
+
+    public void UpdateFuncionarioPessoa(int id, Funcionario funcionario)
+    {
+      MySqlCommand cmd = new MySqlCommand();
+      cmd.Connection = conn;
+      cmd.CommandText =
+      @"UPDATE vFuncionario
+      SET
+      Nome = @nome,
+      CPF  = @cpf,
+      Telefone = @telefone
+      WHERE IdFuncionario = @id;";
+
+      cmd.Parameters.AddWithValue("@nome",      funcionario.Nome);
+      cmd.Parameters.AddWithValue("@cpf",       funcionario.Cpf);
+      cmd.Parameters.AddWithValue("@telefone",  funcionario.Telefone);
+
+      cmd.Parameters.AddWithValue("@id", id);
 
       cmd.ExecuteNonQuery();
 

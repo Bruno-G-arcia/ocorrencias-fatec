@@ -1,0 +1,29 @@
+﻿@using OcorrenciasWeb.Models
+@model Funcionario
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+@{
+    Layout = "/Views/Layout.cshtml";
+    if(Model == null){
+        return;
+    }
+}
+
+<form action="/Funcionario/Update/@Model.IdFuncionario" method="POST">
+    <div>
+        <label>Nome</label>
+        <input type="text" class="form-control" name="Nome" value="@Model.Nome"/>
+    </div>
+
+   <div>
+        <label>CPF</label>
+        <input type="text" name="Cpf" class="form-control" value="@Model.Cpf"/>
+    </div>
+  
+    <div>
+        <label>Telefone</label>
+        <input type="text" name="Telefone" class="form-control" value="@Model.Telefone"/>
+    </div>
+
+    <button class="btn btn-primary" style="margin-top: 20px">Salvar</button>
+</form>

@@ -11,10 +11,12 @@ namespace OcorrenciasWeb.Controllers
   {
     private readonly IUsuarioRepository UsuRep;
     public IClienteRepository ClRep;
+    public IFuncionarioRepository FnRep;
     public LoginController(IUsuarioRepository UsuRep)
     {
       this.UsuRep = UsuRep;
       this.ClRep = new ClienteRepository();
+      this.FnRep = new FuncionarioRepository();
     }
     
     [HttpGet("login")]
@@ -35,6 +37,21 @@ namespace OcorrenciasWeb.Controllers
 
       var usuario = UsuRep.Auth(email, senha);
             
+      if (usuario.Tipo == "Funcionario")
+      {
+        var funcionario = FnRep.ReadUsuario(usuario.IdUsuario);
+       
+        var claims = new List<Claim>();
+        claims.Add(new Claim("idFuncionario", funcionario.IdFuncionario.ToString()));
+        claims.Add(new Claim(ClaimTypes.Name, funcionario.Nome));
+        claims.Add(new Claim(ClaimTypes.Role, usuario.Tipo));
+        var claimsIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
+        var claimsPrincipal = new ClaimsPrincipal(claimsIdentity);
+        await HttpContext.SignInAsync(claimsPrincipal);
+
+        return RedirectToAction("Funcionario", "Home");
+      }
+
       if (usuario.Tipo == "Cliente")
       {
         var cliente = ClRep.ReadUsuario(usuario.IdUsuario);
@@ -49,7 +66,8 @@ namespace OcorrenciasWeb.Controllers
 
         return RedirectToAction("Cliente", "Home");
       }
-      TempData["Error"] = "Invalid Username or Password";
+
+      TempData["Error"] = "Email ou Senha incorretos";
       return View("login");
     }
 

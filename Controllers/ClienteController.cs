@@ -28,8 +28,8 @@ namespace OcorrenciasWeb.Controllers
         [HttpPost]
         public ActionResult Create(Cliente cliente)
         {
-            repository.Create(cliente);
-            return RedirectToAction("Index");
+            repository.CreateCompleto(cliente);
+            return RedirectToAction("Login", "Login");
         }
 
         public ActionResult Delete(int id)

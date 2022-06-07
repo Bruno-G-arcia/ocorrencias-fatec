@@ -22,13 +22,34 @@ namespace OcorrenciasWeb.Controllers
     {
       var idCliente = User.Claims.FirstOrDefault(c => c.Type == "idCliente").Value;
 
+      var cliente = ClRep.Read(Int32.Parse(idCliente));
+      
+      ViewBag.ClNome = cliente.Nome;
+
       List<Ocorrencia> ocorrencias = OcRep.ReadCliente(int.Parse(idCliente));
       return View(ocorrencias);
 
     }
+
+    [Authorize]
     public IActionResult Funcionario()
     {
-      return View();
+      List<Ocorrencia> ocorrencias = OcRep.Read();
+      return View(ocorrencias);
     }
+
+    [Authorize]
+    public IActionResult Main()
+    {
+     
+      if(User.IsInRole("Cliente")){
+        return RedirectToAction("Cliente", "Home");
+      }
+      else{
+        return RedirectToAction("Funcionario", "Home");
+      }
+
+    }
+    
   }
 }
