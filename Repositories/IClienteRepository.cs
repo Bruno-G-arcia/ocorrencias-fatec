@@ -9,6 +9,7 @@ namespace OcorrenciasWeb.Repositories
       Cliente Read(int id);
       Cliente ReadUsuario(int id);
       void Update(int id, Cliente cliente);
+      void UpdateClientePessoa(int id, Cliente cliente);
       void Delete(int id); 
     }
 }  

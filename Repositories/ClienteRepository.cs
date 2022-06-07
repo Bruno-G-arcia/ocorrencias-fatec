@@ -1,5 +1,6 @@
 using OcorrenciasWeb.Models;
 using MySqlConnector;
+using System.Diagnostics;
 
 namespace OcorrenciasWeb.Repositories
 {
@@ -74,6 +75,7 @@ namespace OcorrenciasWeb.Repositories
 
       using (MySqlDataReader reader = cmd.ExecuteReader())
       {
+        
         while (reader.Read())
         {
             cliente.IdCliente     = (int)reader["IdCliente"];
@@ -83,9 +85,9 @@ namespace OcorrenciasWeb.Repositories
             cliente.Telefone      = (string)reader["Telefone"];
             cliente.Nome          = (string)reader["Nome"];
             cliente.Email         = (string)reader["CPF"];
-            cliente.Senha         = (string)reader["Senha"];
         }
       }
+      
       return cliente;
     }
 
@@ -123,10 +125,32 @@ namespace OcorrenciasWeb.Repositories
       @"UPDATE Cliente 
       SET 
       Email               = @email,
-      WHERE IdFuncionario = @id;";
+      WHERE IdCliente = @id;";
 
       cmd.Parameters.AddWithValue("@email",    cliente.Email);
       cmd.Parameters.AddWithValue("@id",    id);
+
+      cmd.ExecuteNonQuery();
+
+    }
+
+    public void UpdateClientePessoa(int id, Cliente cliente)
+    {
+      MySqlCommand cmd = new MySqlCommand();
+      cmd.Connection = conn;
+      cmd.CommandText =
+      @"UPDATE vCliente
+      SET
+      Nome = @nome,
+      CPF  = @cpf,
+      Telefone = @telefone
+      WHERE IdCliente = @id;";
+
+      cmd.Parameters.AddWithValue("@nome",      cliente.Nome);
+      cmd.Parameters.AddWithValue("@cpf",       cliente.Cpf);
+      cmd.Parameters.AddWithValue("@telefone",  cliente.Telefone);
+
+      cmd.Parameters.AddWithValue("@id", id);
 
       cmd.ExecuteNonQuery();
 

@@ -25,4 +25,4 @@ C:\Users\Bruno\source\repos\Bruno-G-arcia\ocorrencias-fatec\obj\Debug\net6.0\ref
 C:\Users\Bruno\source\repos\Bruno-G-arcia\ocorrencias-fatec\obj\Debug\net6.0\OcorrenciasWeb.pdb
 C:\Users\Bruno\source\repos\Bruno-G-arcia\ocorrencias-fatec\obj\Debug\net6.0\OcorrenciasWeb.genruntimeconfig.cache
 C:\Users\Bruno\source\repos\Bruno-G-arcia\ocorrencias-fatec\obj\Debug\net6.0\OcorrenciasWeb.csproj.AssemblyReference.cache
-C:\Users\Bruno\source\repos\Bruno-G-arcia\ocorrencias-fatec\obj\Debug\net6.0\refint\OcorrenciasWeb.dll
+C:\Users\Bruno\source\repos\Bruno-G-arcia\ocorrencias-fatec\bin\Debug\net6.0\ref\OcorrenciasWeb.dll

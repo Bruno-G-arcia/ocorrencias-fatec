@@ -1,3 +1,9 @@
+@{
+    var idCliente = User.Claims.FirstOrDefault( u => u.Type == "idCliente").Value;
+
+
+}
+
 <!DOCTYPE html>
 <html lang="pt">
 <head runat="server">
@@ -14,9 +20,10 @@
         <div class="navigation">
             <nav class="nav flex-column">
             @if(User.IsInRole("Cliente")){
-                <a class="nav-link" href="/Home/Cliente">Meus Dados</a>
+                <a class="nav-link" href="/Cliente/Update/@idCliente">Meus Dados</a>
                 <a class="nav-link" href="/Home/Cliente">Minhas Ocorrencias</a>
                 <a class="nav-link" href="/ocorrencia/create">Criar Ocorrencia</a>
+                <a class="nav-link" href="/login/logout">Sair</a>
             }
             </nav>
         </div>
