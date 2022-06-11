@@ -14,7 +14,6 @@ namespace OcorrenciasWeb{
             builder.Services.AddTransient<IFuncionarioRepository, FuncionarioRepository>();
             builder.Services.AddTransient<IOrdemServicoRepository, OrdemServicoRepository>();
 
-
             builder.Services.AddControllersWithViews();
             builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
                 .AddCookie(options =>

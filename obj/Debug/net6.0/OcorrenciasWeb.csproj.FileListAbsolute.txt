@@ -54,3 +54,14 @@ C:/Users/Bruno/source/repos/Bruno-G-arcia/ocorrencias-fatec/bin/Debug/net6.0/ref
 /home/garcia/Documents/source/repos/ocorrencias-fatec-1/obj/Debug/net6.0/refint/OcorrenciasWeb.dll
 /home/garcia/Documents/source/repos/ocorrencias-fatec-1/obj/Debug/net6.0/OcorrenciasWeb.genruntimeconfig.cache
 /home/garcia/Documents/source/repos/ocorrencias-fatec-1/obj/Debug/net6.0/ref/OcorrenciasWeb.dll
+/home/garcia/Documents/source/repos/ocorrencias-fatec-1/bin/Debug/net6.0/Microsoft.AspNetCore.JsonPatch.dll
+/home/garcia/Documents/source/repos/ocorrencias-fatec-1/bin/Debug/net6.0/Microsoft.AspNetCore.Mvc.Razor.Extensions.dll
+/home/garcia/Documents/source/repos/ocorrencias-fatec-1/bin/Debug/net6.0/Microsoft.AspNetCore.Razor.Language.dll
+/home/garcia/Documents/source/repos/ocorrencias-fatec-1/bin/Debug/net6.0/Microsoft.CodeAnalysis.dll
+/home/garcia/Documents/source/repos/ocorrencias-fatec-1/bin/Debug/net6.0/Microsoft.CodeAnalysis.CSharp.dll
+/home/garcia/Documents/source/repos/ocorrencias-fatec-1/bin/Debug/net6.0/Microsoft.CodeAnalysis.Razor.dll
+/home/garcia/Documents/source/repos/ocorrencias-fatec-1/bin/Debug/net6.0/Microsoft.DotNet.PlatformAbstractions.dll
+/home/garcia/Documents/source/repos/ocorrencias-fatec-1/bin/Debug/net6.0/Microsoft.Extensions.DependencyModel.dll
+/home/garcia/Documents/source/repos/ocorrencias-fatec-1/bin/Debug/net6.0/Newtonsoft.Json.dll
+/home/garcia/Documents/source/repos/ocorrencias-fatec-1/bin/Debug/net6.0/Newtonsoft.Json.Bson.dll
+/home/garcia/Documents/source/repos/ocorrencias-fatec-1/bin/Debug/net6.0/System.Security.Permissions.dll

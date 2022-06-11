@@ -1,3 +1,3 @@
 USE OCORRENCIAS;
 
-SELECT * FROM OrdemServico;
+SELECT * FROM Ocorrencia;
