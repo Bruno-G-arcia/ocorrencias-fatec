@@ -130,3 +130,8 @@ form input{
     width: 100%;
 }
 
+.CadastroContainer{
+    margin: auto;
+    border: 2px solid white;
+}
+

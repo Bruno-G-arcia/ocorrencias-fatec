@@ -7,7 +7,7 @@ namespace OcorrenciasWeb.Models
     {
         public int     IdPessoa { get; set; }
 
-        [Required(ErrorMessage ="Campo Nome é obrigatório")]
+        [Required(ErrorMessage ="Nome é um campo obrigatório")]
         public string Nome     { get; set; }
         public string? Cpf      { get; set; }
         public string? Telefone { get; set; }

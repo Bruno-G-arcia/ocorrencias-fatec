@@ -1,4 +1,6 @@
 @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@using OcorrenciasWeb.Models;
+@model OcorrenciasWeb.Models.Cliente;
 @{
     Layout = "/Views/LayoutL.cshtml";
 }
@@ -7,12 +9,13 @@
     <form asp-controller="Cliente" asp-action="Create" method="POST">
         <div>
             <label>Nome</label>
+            <br/>
+            <span asp-validation-for="Nome" class="text-danger"></span>
             <input asp-for="Nome" class="form-control" name="Nome"/>
-            <span asp-validation-for="Nome"></span>
         </div>
         <div>
             <label>CPF</label>
-            <input type="text" class="form-control" name="CPF" />
+            <input asp-for="Cpf" class="form-control" name="Cpf" mask="000-00-0000" title="Mask: 000-00-0000"/>
         </div>
         <div>
             <label>Telefone</label>
