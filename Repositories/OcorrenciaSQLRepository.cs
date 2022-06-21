@@ -7,16 +7,15 @@ namespace OcorrenciasWeb.Repositories
   {
 
     public void Create(Ocorrencia ocorrencia)
-    { 
+    {
 
       MySqlCommand cmd = new MySqlCommand();
       cmd.Connection = conn;
       cmd.CommandText = @"INSERT INTO Ocorrencia (Titulo, Descricao, Abertura, Prazo, Status, Prioridade, idCliente) 
     VALUES(@titulo, @descricao, @abertura, @prazo, @status, @prioridade, @idCliente);";
 
-      var abertura  = DateTime.Now.ToString("yyyy-MM-dd");
-      var prazo     = DateTime.Now.AddDays(30).ToString("yyyy-MM-dd");
-      var IdCliente = 1; 
+      var abertura = DateTime.Now.ToString("yyyy-MM-dd");
+      var prazo = DateTime.Now.AddDays(30).ToString("yyyy-MM-dd");
 
       cmd.Parameters.AddWithValue("@titulo", ocorrencia.Titulo);
       cmd.Parameters.AddWithValue("@descricao", ocorrencia.Descricao);
@@ -24,7 +23,7 @@ namespace OcorrenciasWeb.Repositories
       cmd.Parameters.AddWithValue("@prazo", prazo);
       cmd.Parameters.AddWithValue("@status", "Suporte");
       cmd.Parameters.AddWithValue("@prioridade", "Normal");
-      cmd.Parameters.AddWithValue("@idCliente", IdCliente);
+      cmd.Parameters.AddWithValue("@idCliente", ocorrencia.IdCliente);
 
       cmd.ExecuteNonQuery();
     }
@@ -57,14 +56,14 @@ namespace OcorrenciasWeb.Repositories
           {
             IdOcorrencia = (int)reader["IdOcorrencia"],
             Titulo = (string)reader["Titulo"],
+            Descricao = (string)reader["Descricao"],
             Abertura = (DateTime)reader["Abertura"],
             Prazo = (DateTime)reader["Prazo"],
             Prioridade = (string)reader["Prioridade"],
             IdCliente = (int)reader["IdCliente"],
-            Status    = (string)reader["Status"]
+            Status = (string)reader["Status"]
           });
         }
-
       }
 
       return ocorrencias;
@@ -93,8 +92,8 @@ namespace OcorrenciasWeb.Repositories
             Prazo = (DateTime)reader["Prazo"],
             Prioridade = (string)reader["Prioridade"],
             IdCliente = (int)reader["IdCliente"],
-            Status    = (string)reader["Status"]
-            
+            Status = (string)reader["Status"]
+
           });
         }
 
@@ -118,14 +117,14 @@ namespace OcorrenciasWeb.Repositories
       {
         while (reader.Read())
         {
-          ocorrencia.IdOcorrencia = (int)     reader["IdOcorrencia"];
-          ocorrencia.Titulo       = (string)  reader["Titulo"];
-          ocorrencia.Descricao    = (string)  reader["Descricao"];
-          ocorrencia.Abertura     = (DateTime)reader["Abertura"];
-          ocorrencia.Prazo        = (DateTime)reader["Prazo"];
-          ocorrencia.Prioridade   = (string)  reader["Prioridade"];
-          ocorrencia.IdCliente    = (int)     reader["IdCliente"];
-          ocorrencia.Status       = (string)  reader["Status"];
+          ocorrencia.IdOcorrencia = (int)reader["IdOcorrencia"];
+          ocorrencia.Titulo = (string)reader["Titulo"];
+          ocorrencia.Descricao = (string)reader["Descricao"];
+          ocorrencia.Abertura = (DateTime)reader["Abertura"];
+          ocorrencia.Prazo = (DateTime)reader["Prazo"];
+          ocorrencia.Prioridade = (string)reader["Prioridade"];
+          ocorrencia.IdCliente = (int)reader["IdCliente"];
+          ocorrencia.Status = (string)reader["Status"];
         }
       }
       return ocorrencia;
@@ -150,21 +149,57 @@ namespace OcorrenciasWeb.Repositories
       IdCliente   = @idCliente
       WHERE Ocorrencia.IdOcorrencia = @id;";
 
-      string abertura =  DateTime.Today.ToString("yyyy-MM-dd")  ;
-      string prazo =   ocorrencia.Prazo.ToString("yyyy-MM-dd")  ;
-      int IdCliente = 1;
 
       cmd.Parameters.AddWithValue("@id", id);
       cmd.Parameters.AddWithValue("@titulo", ocorrencia.Titulo);
       cmd.Parameters.AddWithValue("@descricao", ocorrencia.Descricao);
-      cmd.Parameters.AddWithValue("@abertura", abertura);
-      cmd.Parameters.AddWithValue("@prazo", prazo);
+      cmd.Parameters.AddWithValue("@abertura", ocorrencia.Abertura);
+      cmd.Parameters.AddWithValue("@prazo", ocorrencia.Prazo);
       cmd.Parameters.AddWithValue("@prioridade", ocorrencia.Prioridade);
-      cmd.Parameters.AddWithValue("@idCliente", IdCliente);
+      cmd.Parameters.AddWithValue("@idCliente", ocorrencia.IdCliente);
       cmd.Parameters.AddWithValue("@status", ocorrencia.Status);
 
       cmd.ExecuteNonQuery();
 
     }
+
+    public List<Ocorrencia> ReadCargo(string cargo)
+    {
+      MySqlCommand cmd = new MySqlCommand();
+      cmd.Connection = conn;
+      cmd.CommandText = @"SELECT * FROM Ocorrencia
+      WHERE Ocorrencia.Status = @cargo;";
+
+      cmd.Parameters.AddWithValue("@carg", cargo);
+      List<Ocorrencia> ocorrencias = new List<Ocorrencia>();
+
+      using (MySqlDataReader reader = cmd.ExecuteReader())
+      {
+        while (reader.Read())
+        {
+          ocorrencias.Add(
+          new Ocorrencia
+          {
+            IdOcorrencia = (int)reader["IdOcorrencia"],
+            Titulo = (string)reader["Titulo"],
+            Descricao = (string)reader["Descricao"],
+            Abertura = (DateTime)reader["Abertura"],
+            Prazo = (DateTime)reader["Prazo"],
+            Prioridade = (string)reader["Prioridade"],
+            IdCliente = (int)reader["IdCliente"],
+            Status = (string)reader["Status"]
+          });
+        }
+      }
+
+      return ocorrencias;
+    }
+
+
+
   }
+
+
+
+
 }

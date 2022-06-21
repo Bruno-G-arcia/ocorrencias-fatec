@@ -40,9 +40,14 @@ namespace OcorrenciasWeb.Controllers
       if (usuario.Tipo == "Funcionario")
       {
         var funcionario = FnRep.ReadUsuario(usuario.IdUsuario);
-       
+        var cargo = "";
+        if(funcionario.Cargo != null){
+          cargo = funcionario.Cargo;
+        }
+
         var claims = new List<Claim>();
         claims.Add(new Claim("idFuncionario", funcionario.IdFuncionario.ToString()));
+        claims.Add(new Claim("Cargo", cargo));
         claims.Add(new Claim(ClaimTypes.Name, funcionario.Nome));
         claims.Add(new Claim(ClaimTypes.Role, usuario.Tipo));
         var claimsIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);

@@ -19,7 +19,7 @@ namespace OcorrenciasWeb{
                 .AddCookie(options =>
                 {
                     options.LoginPath = "/login";
-                    options.AccessDeniedPath = "/";
+                    options.AccessDeniedPath = "/Home/Denied";
                 });
             builder.Services.Configure<IdentityOptions>(options =>
                 options.ClaimsIdentity.UserIdClaimType = ClaimTypes.NameIdentifier);

@@ -2,7 +2,6 @@
 @using System.Security.Claims;
 @{
   Layout = "/Views/Layout.cshtml";
-  var idCliente = User.Claims.FirstOrDefault(c => c.Type == "idCliente").Value;
 }
 
  <div class="HomeContainer">
@@ -16,6 +15,7 @@
         <th>Abertura</th>
         <th>Prazo</th>
         <th>Status</th>
+        <th></th>
       </tr>
       @if (Model != null)
       {
@@ -29,7 +29,7 @@
             <td>@o.Prazo.ToString("dd/MM/yyyy")</td>
             <td>@o.Status</td>
             <td>
-              <a href="/Ocorrencia/Delete/@o.IdOcorrencia">Detalhes</a>
+              <a href="/OrdemServico/CDetalhes?idOcorrencia=@o.IdOcorrencia">Detalhes</a>
             </td>
           </tr>
 

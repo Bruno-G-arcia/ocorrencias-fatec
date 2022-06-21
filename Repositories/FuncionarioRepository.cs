@@ -1,6 +1,7 @@
 using OcorrenciasWeb.Models;
 using MySqlConnector;
 
+
 namespace OcorrenciasWeb.Repositories
 {
   public class FuncionarioRepository : DBContext, IFuncionarioRepository
@@ -11,13 +12,23 @@ namespace OcorrenciasWeb.Repositories
       MySqlCommand cmd = new MySqlCommand();
       cmd.Connection = conn;
       cmd.CommandText = 
-      @"INSERT INTO Funcionario (IdPessoa, IdUsuario, Cargo) 
-      VALUES(@idPesoa, @idUsuario, @cargo);";
+      @"INSERT INTO Pessoa (Nome, CPF, Telefone) 
+      VALUES(@nome, @cpf, @telefone);
+      SET @vIdPessoa = LAST_INSERT_ID();
+      INSERT INTO Usuario (Email, Senha, Tipo)
+      VALUES (@email, @senha, @tipo);
+      SET @vIdUsuario = LAST_INSERT_ID();
+      INSERT into Funcionario (IdUsuario, IdPessoa, Cargo )
+      VALUES(@vIdUsuario, @vIdPessoa, @Cargo);
+      ";
 
-      cmd.Parameters.AddWithValue("@idPessoa",   funcionario.IdPessoa);
-      cmd.Parameters.AddWithValue("@idUsuario",  funcionario.IdUsuario);
-      cmd.Parameters.AddWithValue("@cargo",      funcionario.Cargo);
-
+      cmd.Parameters.AddWithValue("@nome",      funcionario.Nome);
+      cmd.Parameters.AddWithValue("@cpf",       funcionario.Cpf);
+      cmd.Parameters.AddWithValue("@telefone",  funcionario.Telefone);
+      cmd.Parameters.AddWithValue("@email",     funcionario.Email);
+      cmd.Parameters.AddWithValue("@senha",     funcionario.Senha);
+      cmd.Parameters.AddWithValue("@cargo",     funcionario.Cargo);
+      cmd.Parameters.AddWithValue("@tipo",      "Funcionario");
       cmd.ExecuteNonQuery();
     }
 
@@ -81,6 +92,7 @@ namespace OcorrenciasWeb.Repositories
           funcionario.IdFuncionario= (int)reader["IdFuncionario"];
           funcionario.IdUsuario = (int)reader["IdUsuario"];
           funcionario.IdPessoa  = (int)reader["IdPessoa"];
+          funcionario.Cargo     = (string)reader["Cargo"];
           funcionario.Cpf       = (string)reader["CPF"];
           funcionario.Telefone  = (string)reader["Telefone"];
           funcionario.Nome      = (string)reader["Nome"];

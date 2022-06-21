@@ -4,29 +4,53 @@
 
 @{
     Layout = "/Views/Layout.cshtml";
-    if(Model == null){
+    if (Model == null)
+    {
         return;
     }
 }
 <form action="/Ocorrencia/Update/@Model.IdOcorrencia" method="POST">
     <div>
         <label>Titulo</label>
-        <input type="text" class="form-control" name="Titulo" value="@Model.Titulo"/>
+        <input type="text" class="form-control" name="Titulo" value="@Model.Titulo" />
     </div>
 
-   <div>
+    <div>
         <label>Descricao</label>
         <textarea name="Descricao" class="form-control">@Model.Descricao</textarea>
     </div>
+    <div>
+        <label>Abertura</label>
+        <input readonly asp-for="Abertura" class="form-control" />
+    </div>
 
-   <div>
+    <div>
         <label>Prazo</label>
-        <input asp-for="Prazo" class="form-control"/>
+        <input asp-for="Prazo" class="form-control" />
     </div>
 
     <div>
         <label>Prioridade</label>
-        <textarea name="Prioridade" class="form-control">@Model.Prioridade</textarea>
+        <select asp-for="Prioridade" class="form-control">
+            <option value="Normal">Normal</option>
+            <option value="Urgente">Urgente</option>
+        </select>
+    </div>
+
+    <div>
+        <label>Status</label>
+        <select asp-for="Status" class="form-control">
+            <option value="Suporte">Suporte</option>
+            <option value="Desenvolvimento">Desenvolvimento</option>
+            <option value="Q.A.">Q.A.</option>
+            <option value="Finalizada">Finalizada</option>
+        </select>
+    </div>
+
+
+    <div>
+        <label for="idCliente">Cliente</label>
+        <input asp-for="IdCliente" readonly class="form-control" />
     </div>
 
     <button class="btn btn-primary" style="margin-top: 20px">Salvar</button>

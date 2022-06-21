@@ -11,11 +11,14 @@ namespace OcorrenciasWeb.Controllers
     private readonly IUsuarioRepository UsuRep;
     public IClienteRepository ClRep;
     public IOcorrenciaRepository OcRep;
+
+    private IFuncionarioRepository FnRep;
     public HomeController(IUsuarioRepository UsuRep)
     {
       this.UsuRep = UsuRep;
       this.ClRep = new ClienteRepository();
       this.OcRep = new OcorrenciaSQLRepository();
+      this.FnRep = new FuncionarioRepository();
     }
     [Authorize]
     public IActionResult Cliente()
@@ -34,7 +37,21 @@ namespace OcorrenciasWeb.Controllers
     [Authorize]
     public IActionResult Funcionario()
     {
+
+      var idFuncionario = User.Claims.FirstOrDefault(c => c.Type == "idFuncionario").Value;
+
+      var funcionario = FnRep.Read(Int32.Parse(idFuncionario));
+      
+      ViewBag.FnNome = funcionario.Nome;
+      ViewBag.FnCargo = funcionario.Cargo;
+
       List<Ocorrencia> ocorrencias = OcRep.Read();
+
+      foreach(var oc in ocorrencias){
+        var cliente = ClRep.Read(oc.IdCliente);
+        oc.NomeCliente = cliente.Nome;
+      }
+
       return View(ocorrencias);
     }
 
@@ -49,6 +66,12 @@ namespace OcorrenciasWeb.Controllers
         return RedirectToAction("Funcionario", "Home");
       }
 
+    }
+
+    [Authorize]
+    public IActionResult Denied()
+    {
+      return View();
     }
     
   }

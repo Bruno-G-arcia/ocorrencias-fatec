@@ -28,11 +28,11 @@ namespace OcorrenciasWeb.Repositories
       cmd.CommandText = 
       @"INSERT INTO Pessoa (Nome, CPF, Telefone) 
       VALUES(@nome, @cpf, @telefone);
-      SET @vIdPessoa = LAST_INSERT_ID();
+      SET @vIdPessoa = @@IDENTITY;
       INSERT INTO Usuario (Email, Senha, Tipo)
       VALUES (@email, @senha, @tipo);
-      SET @vIdUsuario = LAST_INSERT_ID();
-      INSERT into Cliente (IdPessoa, IdUsuario )
+      SET @vIdUsuario = @@IDENTITY;
+      INSERT into Cliente (IdUsuario, IdPessoa )
       VALUES(@vIdUsuario, @vIdPessoa);
       ";
 
@@ -42,8 +42,6 @@ namespace OcorrenciasWeb.Repositories
       cmd.Parameters.AddWithValue("@email",     cliente.Email);
       cmd.Parameters.AddWithValue("@senha",     cliente.Senha);
       cmd.Parameters.AddWithValue("@tipo",      "Cliente");
-      
-
       cmd.ExecuteNonQuery();
     }
 

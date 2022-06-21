@@ -9,5 +9,6 @@ namespace OcorrenciasWeb.Models
         public DateTime Abertura { get; set; }
         public string? Status { get; set;}
         public int IdFuncionario {get; set;}
+        public string? NomeFuncionario {get; set;}
     }
 }

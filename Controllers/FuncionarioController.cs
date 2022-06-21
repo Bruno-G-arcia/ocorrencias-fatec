@@ -1,6 +1,8 @@
 using OcorrenciasWeb.Models;
 using Microsoft.AspNetCore.Mvc;
 using OcorrenciasWeb.Repositories;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Authentication;
 
 namespace OcorrenciasWeb.Controllers
 {
@@ -19,6 +21,7 @@ namespace OcorrenciasWeb.Controllers
             return View(funcionarios);
         }
 
+        [Authorize(Roles = "Funcionario")]
         [HttpGet]
         public ActionResult Create()
         {
@@ -28,8 +31,11 @@ namespace OcorrenciasWeb.Controllers
         [HttpPost]
         public ActionResult Create(Funcionario funcionario)
         {
-            repository.Create(funcionario);
-            return RedirectToAction("Index");
+            if(ModelState.IsValid){
+                repository.Create(funcionario);
+                return RedirectToAction("Login", "Login");    
+            }
+            return View(funcionario);
         }
 
         public ActionResult Delete(int id)

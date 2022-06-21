@@ -1,0 +1,55 @@
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@using OcorrenciasWeb.Models;
+@model OcorrenciasWeb.Models.Funcionario;
+@{
+    Layout = "/Views/LayoutL.cshtml";
+}
+
+<div class="CadastroContainer">
+    <form asp-controller="Funcionario" asp-action="Create" method="POST">
+        <div>
+            <label>Nome</label>
+            <br />
+            <span asp-validation-for="Nome" class="text-danger"></span>
+            <input asp-for="Nome" class="form-control" name="Nome" />
+        </div>
+        <div>
+            <label>CPF</label>
+            <input type="text" asp-for="Cpf" class="form-control" name="Cpf"
+                data-inputmask="'mask': '999.999.999-99'" />
+        </div>
+        <div>
+            <label>Telefone</label>
+            <input type="text" class="form-control" name="Telefone" data-inputmask="'mask': '(99)99999-9999'" />
+        </div>
+
+        <div>
+            <label>Cargo</label>
+                <select name="Cargo" id="Cago">
+                    <option value="Suporte">Suporte</option>
+                    <option value="Desenvolvimento">Desenvolvimento</option>
+                    <option value="Q.A.">Q.A.</option>
+                    <option value="Finalizada">Finalizada</option>
+                </select>
+        </div>
+
+
+        <div>
+            <label>Email</label>
+            <input type="text" class="form-control" name="Email" />
+        </div>
+
+        <div>
+            <label>Senha</label>
+            <input type="password" class="form-control" name="Senha" />
+        </div>
+
+        <button class="btn btn-primary" style="margin-top: 20px">Salvar</button>
+    </form>
+    <script>
+        $(document).ready(function () {
+            $(":input").inputmask();
+
+        });
+    </script>
+</div>

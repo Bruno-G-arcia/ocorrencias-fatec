@@ -5,7 +5,7 @@
 }
 
  <div class="HomeContainer">
-    <div class="HomeTitle"> Bem vindo @User.Identity.Name !</div>
+    <div class="HomeTitle"> Bem vindo @ViewBag.FnNome !</div>
 
     <h3>Ocorrencias:</h3>
     <table class="table table-hover">
@@ -15,6 +15,11 @@
         <th>Abertura</th>
         <th>Prazo</th>
         <th>Status</th>
+        <th>Prioridade</th>
+        <th>Cliente</th>
+        <th></th>
+        <th></th>
+        <th></th>
       </tr>
       @if (Model != null)
       {
@@ -27,8 +32,16 @@
             <td>@o.Abertura.ToString("dd/MM/yyyy")</td>
             <td>@o.Prazo.ToString("dd/MM/yyyy")</td>
             <td>@o.Status</td>
+            <td>@o.Prioridade</td>
+            <td>@o.NomeCliente</td>
             <td>
-              <a href="/OrdemServico/Detalhes?idOcorrencia=@o.IdOcorrencia">Detalhes</a>  
+              <a href="/OrdemServico/Detalhes?idOcorrencia=@o.IdOcorrencia">Detalhes</a>
+            </td>
+            <td>
+              <a href="/Ocorrencia/Update/@o.IdOcorrencia">Editar</a>
+            </td>
+            <td>
+              <a href="/Ocorrencia/Delete/@o.IdOcorrencia">Excluir</a>  
             </td>
           </tr>
 

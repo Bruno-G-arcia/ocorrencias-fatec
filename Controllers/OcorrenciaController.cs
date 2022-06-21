@@ -6,7 +6,8 @@ namespace OcorrenciasWeb.Controllers
 {
     public class OcorrenciaController : Controller
     {
-        private readonly IOcorrenciaRepository repository;
+    private const int V = 1;
+    private readonly IOcorrenciaRepository repository;
 
         public OcorrenciaController(IOcorrenciaRepository repository)
         {
@@ -28,14 +29,23 @@ namespace OcorrenciasWeb.Controllers
         [HttpPost]
         public ActionResult Create(Ocorrencia ocorrencia)
         {
+            int idCliente = 1;
+            
+            if(User.IsInRole("Cliente")){
+                idCliente = Int32.Parse(User.Claims.FirstOrDefault(c => c.Type == "idCliente").Value);
+            }
+            ocorrencia.IdCliente = idCliente;  
+            
             repository.Create(ocorrencia);
             return RedirectToAction("Main", "Home");
         }
 
+        
+
         public ActionResult Delete(int id)
         {
             repository.Delete(id);
-            return RedirectToAction("Index");
+            return RedirectToAction("Main", "Home");
         }
 
         [HttpGet]
@@ -49,7 +59,7 @@ namespace OcorrenciasWeb.Controllers
         public ActionResult Update(int id, Ocorrencia ocorrencia)
         {
             repository.Update(id, ocorrencia);
-            return RedirectToAction("Index");
+            return RedirectToAction("Main", "Home");
         }
 
         public ActionResult Detalhes(int id)
@@ -57,6 +67,21 @@ namespace OcorrenciasWeb.Controllers
             var ocorrencia = repository.Read(id);
             return View(ocorrencia);
         }
+
+        public ActionResult Cargo(string cargo)
+        {
+            var ocorrencia = repository.Read();
+            var fOcorrencia = ocorrencia.Where( o => o.Status == cargo).ToList();
+            return View(fOcorrencia);
+        }
+
+        public ActionResult Finalizadas(int idCliente)
+        {
+            var ocorrencia = repository.Read();
+            var fOcorrencia = ocorrencia.Where( o => o.IdCliente == idCliente && o.Status == "Finalizada").ToList();
+            return View(fOcorrencia);
+        }
+
 
     }
 }
